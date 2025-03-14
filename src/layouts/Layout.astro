@@ -1,22 +1,52 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="pt_BR">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Neuon</title>
+    <title>{title}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <slot />
+  <body class="bg-white text-gray-900 font-figtree">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
 
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+<style is:global>
+  @import "tailwindcss";
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply py-3 px-6 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300;
+  }
+  .btn-secondary {
+    @apply py-3 px-6 bg-transparent border border-blue-600 text-blue-600 font-medium rounded-md hover:bg-blue-50 transition-colors duration-300;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-blue-900;
+  }
+  .section-subtitle {
+    @apply text-xl text-blue-700 mb-12;
   }
 </style>
