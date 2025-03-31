@@ -2,16 +2,21 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Services from "../components/Services.astro";
-import Process from "../components/Process.astro";
-import Contact from "../components/Contact.astro";
+import Sobre from "../components/Sobre.astro";
+import Solucoes from "../components/Solucoes.astro";
+import Avaliacoes from "../components/Avaliacoes.astro";
+import Clientes from "../components/Clientes.astro";
+import CTASection from "../components/CTASection.astro";
+import Contato from "../components/Contato.astro";
+import { imageConfig } from "astro:assets";
 ---
 
 <Layout title="Neuon | Consultoria e Desenvolvimento">
   <Hero />
-  <About />
-  <Services />
-  <Process />
-  <Contact />
+  <Sobre />
+  <Solucoes />
+  <Avaliacoes />
+  <Clientes />
+  <CTASection />
+  <Contato />
 </Layout>
