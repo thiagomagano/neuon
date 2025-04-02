@@ -4,8 +4,11 @@
 
 <section class="hero-container">
   <div class="hero-content">
-    <div class="hero-text">
-      <h1>Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya.</h1>
+    <div class="hero-text font-normal space-y-8">
+      <h1 class="text-5xl max-w-xl text-white pt-20 leading-14">
+        Especialistas em otimizar operações e maximizar lucros através do ERP
+        Sankhya.
+      </h1>
       <button class="cta-button">Solicite uma demonstração</button>
     </div>
   </div>
@@ -14,23 +17,24 @@
 <style>
   .hero-container {
     position: relative;
-    height: 500px;
+    height: 800px;
     width: 100%;
     overflow: hidden;
-    background-image: url('/images/business-person.jpg');
+    background-image: url("/images/hero.png");
     background-size: cover;
-    background-position: center right;
+    background-position: right top;
+    background-repeat: no-repeat;
   }
 
   .hero-container::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 55%;
+    width: 58%;
     height: 100%;
-    background-color: #0047AB; /* Royal blue color */
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    background-color: #0637ae; /* Royal blue color */
+    clip-path: polygon(0 0, 100% 0, 69% 93%, 0 38%);
     z-index: 1;
   }
 
@@ -42,24 +46,11 @@
     margin: 0 auto;
     z-index: 2;
     display: flex;
-    align-items: center;
-  }
-
-  .hero-text {
-    width: 50%;
-    padding: 2rem;
-    color: white;
-  }
-
-  .hero-text h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 2rem;
+    align-items: start;
   }
 
   .cta-button {
-    background-color: #E6A817; /* Gold color for the button */
+    background-color: #e6a817; /* Gold color for the button */
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -70,7 +61,7 @@
   }
 
   .cta-button:hover {
-    background-color: #D69915;
+    background-color: #d69915;
   }
 
   @media (max-width: 768px) {
