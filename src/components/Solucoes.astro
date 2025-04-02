@@ -1,0 +1,69 @@
+---
+import FeatureCard from "./FeatureCard.astro";
+
+const features = [
+  {
+    title: "Intelligent Automation",
+    description:
+      "Automate repetitive tasks and workflows with our AI-powered platform, allowing your team to focus on high-value activities.",
+    icon: "/images/icons/feature-1.svg",
+  },
+  {
+    title: "Predictive Analytics",
+    description:
+      "Leverage the power of machine learning to predict trends, identify opportunities, and make data-driven decisions.",
+    icon: "/images/icons/feature-2.svg",
+  },
+  {
+    title: "Natural Language Processing",
+    description:
+      "Our advanced NLP capabilities enable seamless interactions with your data through simple conversational interfaces.",
+    icon: "/images/icons/feature-3.svg",
+  },
+  {
+    title: "Computer Vision",
+    description:
+      "Analyze and interpret visual data with our cutting-edge computer vision technology for enhanced insights.",
+    icon: "/images/icons/feature-1.svg",
+  },
+  {
+    title: "Integration Ecosystem",
+    description:
+      "Connect seamlessly with your existing tech stack through our extensive library of pre-built integrations and APIs.",
+    icon: "/images/icons/feature-2.svg",
+  },
+  {
+    title: "Enterprise Security",
+    description:
+      "Rest assured with enterprise-grade security protocols and compliance standards built into our platform.",
+    icon: "/images/icons/feature-3.svg",
+  },
+];
+---
+
+<section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2
+        class="text-3xl font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+        Powerful Features Built for Your Business
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-secondary-600">
+        Discover how our AI-powered platform can transform your operations and
+        drive results.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature) => (
+          <FeatureCard
+            title={feature.title}
+            description={feature.description}
+            icon={feature.icon}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

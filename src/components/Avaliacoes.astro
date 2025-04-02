@@ -1,0 +1,54 @@
+---
+import TestimonialCard from "./AvaliacoesCard.astro";
+
+const testimonials = [
+  {
+    quote:
+      "Implementing Neuon AI has transformed our customer service operations. We've reduced response times by 45% while maintaining exceptional quality.",
+    name: "Sarah Johnson",
+    title: "Director of Operations",
+    company: "TechCorp Inc.",
+  },
+  {
+    quote:
+      "The predictive analytics capabilities have given us insights we never thought possible. We've been able to optimize our supply chain and reduce costs by 28%.",
+    name: "Michael Chen",
+    title: "Chief Information Officer",
+    company: "Global Logistics",
+  },
+  {
+    quote:
+      "Neuon's platform was surprisingly easy to integrate with our existing systems. Within weeks, we were seeing the benefits across our entire organization.",
+    name: "Priya Patel",
+    title: "VP of Technology",
+    company: "Innovate Financial",
+  },
+];
+---
+
+<section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2
+        class="text-3xl font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+        Trusted by Industry Leaders
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-secondary-600">
+        See what our customers have to say about their experience with Neuon
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      {
+        testimonials.map((testimonial) => (
+          <TestimonialCard
+            quote={testimonial.quote}
+            name={testimonial.name}
+            title={testimonial.title}
+            company={testimonial.company}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

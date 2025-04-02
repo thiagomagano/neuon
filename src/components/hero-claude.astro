@@ -1,0 +1,91 @@
+---
+// Hero.astro - A hero section component with diagonal split design
+---
+
+<section class="hero-container">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya.</h1>
+      <button class="cta-button">Solicite uma demonstração</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-container {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('/images/business-person.jpg');
+    background-size: cover;
+    background-position: center right;
+  }
+
+  .hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background-color: #0047AB; /* Royal blue color */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-text {
+    width: 50%;
+    padding: 2rem;
+    color: white;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    background-color: #E6A817; /* Gold color for the button */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #D69915;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container::before {
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+    }
+
+    .hero-text {
+      width: 100%;
+      padding: 2rem 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+const {
+  title = "Ready to transform your business with AI?",
+  description = "Get started today and see the difference our platform can make for your organization.",
+  buttonText = "Contact Sales",
+  buttonLink = "/contact",
+} = Astro.props;
+---
+
+<section class="bg-primary-700">
+  <div
+    class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+      <span class="block">{title}</span>
+      <span class="block mt-2 text-lg font-medium text-primary-100"
+        >{description}</span
+      >
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a
+          href={buttonLink}
+          class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+          {buttonText}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

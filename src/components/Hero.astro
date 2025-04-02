@@ -1,67 +1,29 @@
-<section
-  class="bg-gradient-to-r from-blue-900 to-blue-700 pt-28 pb-20 text-white">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Transforme seu negócio com <span class="text-blue-300"
-            >tecnologia</span
-          > e <span class="text-blue-300">inovação</span>
-        </h1>
-        <p class="text-xl mb-8">
-          Combinamos expertise em consultoria e desenvolvimento para entregar
-          soluções personalizadas e de alto impacto.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="#contato"
-            class="btn-primary bg-blue-500 hover:bg-blue-400 text-center"
-            >Fale conosco</a
-          >
-          <a
-            href="#servicos"
-            class="btn-secondary bg-transparent border border-white text-white hover:bg-blue-800 text-center"
-            >Nossos serviços</a
-          >
-        </div>
-      </div>
-      <div class="md:w-1/2 flex justify-center">
-        <div class="relative">
-          <div
-            class="absolute -top-10 -left-10 w-16 h-16 bg-blue-500 rounded-full opacity-20">
-          </div>
-          <div
-            class="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-300 rounded-full opacity-20">
-          </div>
-          <svg
-            class="w-64 h-64"
-            viewBox="0 0 200 200"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M50 150L100 50L150 150"
-              stroke="white"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M50 100L100 150L150 100"
-              stroke="white"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-      </div>
-    </div>
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryButtonText?: string;
+  primaryButtonLink?: string;
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
+}
+
+const {
+  title = "Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya",
+  subtitle = "Transform your business operations with our cutting-edge artificial intelligence platform designed to enhance productivity, reduce costs, and drive innovation.",
+  primaryButtonText = "Solicite uma demonstração",
+  primaryButtonLink = "#contact",
+  secondaryButtonText = "Solicite uma demonstração",
+  secondaryButtonLink = "#Solucoes",
+} = Astro.props;
+---
+
+<section class="grid grid-cols-2 place-items-center">
+  <div class="bg-azul w-full h-full flex flex-start flex-col gap-16">
+    <h1 class="text-white font-normal max-w-3xl text-6xl">{title}</h1>
+    <button class="p-4 bg-laranja text-white">{primaryButtonText}</button>
   </div>
-  <div class="absolute bottom-0 left-0 w-full">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path
-        fill="#ffffff"
-        fill-opacity="1"
-        d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,154.7C672,128,768,96,864,90.7C960,85,1056,107,1152,122.7C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-      ></path>
-    </svg>
+  <div class="h-auto w-full">
+    <img src="/neoun-hero.png" alt="bg-image-hero-neuon" class="w-full" />
   </div>
 </section>
