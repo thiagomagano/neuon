@@ -1,163 +1,94 @@
 ---
 const currentYear = new Date().getFullYear();
 
-const footerNavigation = {
-  solutions: [
-    { name: "Automation", href: "/features#automation" },
-    { name: "Analytics", href: "/features#analytics" },
-    { name: "Natural Language", href: "/features#nlp" },
-    { name: "Computer Vision", href: "/features#vision" },
-  ],
-  company: [
-    { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Blog", href: "/blog" },
-    { name: "Partners", href: "/partners" },
-  ],
-  resources: [
-    { name: "Documentation", href: "/docs" },
-    { name: "Guides", href: "/guides" },
-    { name: "API Reference", href: "/api" },
-    { name: "Support", href: "/support" },
-  ],
-  legal: [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
-  ],
-  social: [
-    {
-      name: "Twitter",
-      href: "#",
-      icon: '<svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>',
-    },
-    {
-      name: "LinkedIn",
-      href: "#",
-      icon: '<svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>',
-    },
-    {
-      name: "GitHub",
-      href: "#",
-      icon: '<svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>',
-    },
-  ],
-};
+//TODO adicionar links aqui
+const instagramLink = "http://instagram.com/URL_ADDRESS";
+const linkedInLink = "http://linkedin.com/in/URL_ADDRESS";
 ---
 
-<footer
-  class="bg-white border-t border-gray-200"
-  aria-labelledby="footer-heading">
-  <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-      <div class="space-y-8 xl:col-span-1">
-        <div class="flex items-center">
-          <span class="text-2xl font-bold text-primary-700">Neuon</span>
+<footer class="bg-white py-20 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main footer content -->
+    <div class="flex flex-col md:flex-row justify-between items-start mb-8">
+      <!-- Logo and tagline -->
+      <div class="mb-8 md:mb-0">
+        <div class="flex items-center mb-4">
+          <img src="/images/neuon-logo.png" alt="Neuon Logo" class="h-10" />
+          <span class="text-2xl font-bold text-blue-700 ml-2 hidden">NEUON</span
+          >
         </div>
-        <p class="text-secondary-600 text-base">
-          Transforming businesses through advanced artificial intelligence
-          solutions.
+        <p class="text-gray-700 max-w-xs">
+          Soluções inteligentes para desafios reais.
         </p>
-        <div class="flex space-x-6">
-          {
-            footerNavigation.social.map((item) => (
-              <a
-                href={item.href}
-                class="text-secondary-400 hover:text-secondary-500">
-                <span class="sr-only">{item.name}</span>
-                <Fragment set:html={item.icon} />
-              </a>
-            ))
-          }
-        </div>
       </div>
-      <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3
-              class="text-sm font-semibold text-secondary-400 tracking-wider uppercase">
-              Solutions
-            </h3>
-            <ul role="list" class="mt-4 space-y-4">
-              {
-                footerNavigation.solutions.map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class="text-base text-secondary-600 hover:text-secondary-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          <div class="mt-12 md:mt-0">
-            <h3
-              class="text-sm font-semibold text-secondary-400 tracking-wider uppercase">
-              Company
-            </h3>
-            <ul role="list" class="mt-4 space-y-4">
-              {
-                footerNavigation.company.map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class="text-base text-secondary-600 hover:text-secondary-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3
-              class="text-sm font-semibold text-secondary-400 tracking-wider uppercase">
-              Resources
-            </h3>
-            <ul role="list" class="mt-4 space-y-4">
-              {
-                footerNavigation.resources.map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class="text-base text-secondary-600 hover:text-secondary-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          <div class="mt-12 md:mt-0">
-            <h3
-              class="text-sm font-semibold text-secondary-400 tracking-wider uppercase">
-              Legal
-            </h3>
-            <ul role="list" class="mt-4 space-y-4">
-              {
-                footerNavigation.legal.map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class="text-base text-secondary-600 hover:text-secondary-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+
+      <!-- Contact information -->
+      <div class="mb-8 md:mb-0">
+        <a href="mailto:contato@neuon.com.br" class="block text-gray-700 mb-2"
+          >contato@neuon.com.br</a
+        >
+        <a href="tel:+551199944333" class="block text-gray-700 mb-2"
+          >(11) 9994.4333</a
+        >
+        <a href="tel:+551199941122" class="block text-gray-700"
+          >(11) 9994.11221</a
+        >
+      </div>
+
+      <!-- Social media links -->
+      <div>
+        <p class="text-gray-700 mb-2">Redes Sociais:</p>
+        <div class="space-y-2">
+          <a
+            href={instagramLink}
+            class="flex items-center text-gray-700 hover:text-blue-600"
+          >
+            <span>Instagram</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href={linkedInLink}
+            class="flex items-center text-gray-700 hover:text-blue-600"
+          >
+            <span>LinkedIn</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="mt-12 border-t border-gray-200 pt-8">
-      <p class="text-base text-secondary-500 xl:text-center">
-        &copy; {currentYear} Neuon, Inc. All rights reserved.
-      </p>
-    </div>
+
+    <hr class="border-t border-azul my-16" />
   </div>
+
+  <div class="text-center text-gray-500 text-sm">
+    &copy; {currentYear} Neuon. Todos os direitos reservados.
+  </div>
+
+  <!-- TODO: adicionar 'desenvolvido por' -->
 </footer>
