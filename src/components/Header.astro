@@ -1,7 +1,7 @@
 ---
 // Define the navigation items
 const navItems = [
-  { text: "Inicio", href: "/" },
+  { text: "Inicio", href: "#Hero" },
   { text: "Sobre", href: "#Sobre" },
   { text: "Soluções", href: "#Solucoes" },
   { text: "Avaliações", href: "#Avaliacoes" },
@@ -112,7 +112,7 @@ const currentPath = Astro.url.pathname;
     mobileMenuButton.addEventListener("click", () => {
       const expanded =
         mobileMenuButton.getAttribute("aria-expanded") === "true";
-      mobileMenuButton.setAttribute("aria-expanded", !expanded);
+      mobileMenuButton.setAttribute("aria-expanded", (!expanded).toString());
       mobileMenu.classList.toggle("hidden");
     });
   }
