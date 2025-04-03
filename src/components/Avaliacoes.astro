@@ -4,48 +4,49 @@ import TestimonialCard from "./AvaliacoesCard.astro";
 const testimonials = [
   {
     quote:
-      "Implementing Neuon AI has transformed our customer service operations. We've reduced response times by 45% while maintaining exceptional quality.",
-    name: "Sarah Johnson",
-    title: "Director of Operations",
-    company: "TechCorp Inc.",
+      "A experiência com a Neuon foi simplesmente transformadora! Desde o primeiro contato, a equipe se mostrou extremamente profissional, atenta às nossas necessidades e capaz de entregar soluções inovadoras que realmente fizeram a diferença no nosso projeto.",
+    name: "Rafael Ferreira",
+    title: "CEO",
+    imageSrc: "/images/avaliacoes-1.png",
   },
   {
     quote:
-      "The predictive analytics capabilities have given us insights we never thought possible. We've been able to optimize our supply chain and reduce costs by 28%.",
-    name: "Michael Chen",
-    title: "Chief Information Officer",
-    company: "Global Logistics",
+      "Trabalhar com a Neuon superou todas as nossas expectativas! A equipe demonstrou um profundo conhecimento técnico e uma capacidade excepcional de transformar nossos requisitos em soluções práticas e eficientes. O compromisso deles com a qualidade e inovação é verdadeiramente notável.",
+    name: "Bruno Portes",
+    title: "CTO",
+    imageSrc: "/images/avaliacoes-2.png",
   },
   {
     quote:
-      "Neuon's platform was surprisingly easy to integrate with our existing systems. Within weeks, we were seeing the benefits across our entire organization.",
-    name: "Priya Patel",
-    title: "VP of Technology",
-    company: "Innovate Financial",
+      "A experiência com a Neuon foi simplesmente transformadora! Desde o primeiro contato, a equipe se mostrou extremamente profissional, atenta às nossas necessidades e capaz de entregar soluções inovadoras que realmente fizeram a diferença no nosso projeto.",
+    name: "Rafael Ferreira",
+    title: "CEO",
+    imageSrc: "/images/avaliacoes-1.png",
   },
 ];
 ---
 
-<section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
-      <h2
-        class="text-3xl font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
-        Trusted by Industry Leaders
+<section class="py-12 bg-azul sm:py-16 lg:py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center gap-8">
+      <img
+        src="/images/icons/avaliacoes-icon.svg"
+        alt="Icon Avaliacoes - Icone de balão de mensagem"
+        class="h-[41px] w-[32px]"
+      />
+      <h2 class="text-center text-3xl text-white font-semibold max-w-sm">
+        O QUE ESTÃO FALANDO SOBRE A GENTE
       </h2>
-      <p class="mt-4 max-w-2xl mx-auto text-xl text-secondary-600">
-        See what our customers have to say about their experience with Neuon
-      </p>
     </div>
 
-    <div class="mt-12 grid gap-8 md:grid-cols-3">
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
       {
         testimonials.map((testimonial) => (
           <TestimonialCard
             quote={testimonial.quote}
             name={testimonial.name}
             title={testimonial.title}
-            company={testimonial.company}
+            imageSrc={testimonial.imageSrc}
           />
         ))
       }

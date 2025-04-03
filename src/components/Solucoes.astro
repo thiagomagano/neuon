@@ -1,66 +1,52 @@
 ---
-import FeatureCard from "./FeatureCard.astro";
+import SolucoesCard from "./SolucoesCard.astro";
 
 const features = [
   {
-    title: "Intelligent Automation",
+    title: "Consultoria",
     description:
-      "Automate repetitive tasks and workflows with our AI-powered platform, allowing your team to focus on high-value activities.",
-    icon: "/images/icons/feature-1.svg",
+      "Na Neuon, entendemos que cada empresa tem desafios únicos. Nossa consultoria é focada em analisar profundamente as necessidades do seu negócio e traçar estratégias eficientes para otimizar o uso do ERP Sankhya. Com uma abordagem personalizada, ajudamos na definição dos melhores processos, garantindo uma gestão integrada, automatizada e alinhada aos seus objetivos estratégicos.",
   },
   {
-    title: "Predictive Analytics",
+    title: "Desenvolvimento",
     description:
-      "Leverage the power of machine learning to predict trends, identify opportunities, and make data-driven decisions.",
-    icon: "/images/icons/feature-2.svg",
+      "Sabemos que cada empresa opera de maneira diferente, e é por isso que oferecemos soluções sob medida. Nosso time de desenvolvimento cria customizações específicas dentro do ERP Sankhya, adaptando funcionalidades para atender às particularidades do seu negócio. Desde integrações com outras plataformas até a criação de módulos personalizados, garantimos um sistema flexível e alinhado às suas demandas.",
   },
   {
-    title: "Natural Language Processing",
+    title: "Suporte",
     description:
-      "Our advanced NLP capabilities enable seamless interactions with your data through simple conversational interfaces.",
-    icon: "/images/icons/feature-3.svg",
+      "Um ERP eficiente precisa de um suporte ágil e confiável. Na Neuon, oferecemos atendimento remoto especializado para resolver qualquer questão rapidamente, minimizando impactos no dia a dia da sua operação. Nossa equipe está sempre disponível para prestar suporte técnico, tirar dúvidas e garantir que seu sistema funcione com o máximo desempenho e segurança.",
   },
   {
-    title: "Computer Vision",
+    title: "Implementação",
     description:
-      "Analyze and interpret visual data with our cutting-edge computer vision technology for enhanced insights.",
-    icon: "/images/icons/feature-1.svg",
-  },
-  {
-    title: "Integration Ecosystem",
-    description:
-      "Connect seamlessly with your existing tech stack through our extensive library of pre-built integrations and APIs.",
-    icon: "/images/icons/feature-2.svg",
-  },
-  {
-    title: "Enterprise Security",
-    description:
-      "Rest assured with enterprise-grade security protocols and compliance standards built into our platform.",
-    icon: "/images/icons/feature-3.svg",
+      "A implementação do ERP Sankhya é um passo estratégico para a transformação digital da sua empresa. Nossa equipe conduz esse processo com planejamento e expertise, assegurando uma transição fluida e bem-sucedida. Do mapeamento inicial à configuração e treinamento dos usuários, garantimos que o sistema esteja pronto para potencializar a produtividade e eficiência do seu negócio.",
   },
 ];
 ---
 
-<section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
-      <h2
-        class="text-3xl font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
-        Powerful Features Built for Your Business
-      </h2>
-      <p class="mt-4 max-w-2xl mx-auto text-xl text-secondary-600">
-        Discover how our AI-powered platform can transform your operations and
-        drive results.
-      </p>
+<section class="">
+  <div class="bg-cinza pt-12 py-12 sm:py-16 lg:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-8">
+        <img
+          src="/images/icons/solucoes-icon.svg"
+          alt="Icon Soluções - Lampada"
+          class="h-[41px] w-[32px]"
+        />
+        <h2 class="text-center text-3xl text-azul font-semibold max-w-sm">
+          SOLUÇÕES INTELIGENTES PARA DESAFIOS REAIS
+        </h2>
+      </div>
     </div>
-
-    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  </div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 bg-white">
       {
         features.map((feature) => (
-          <FeatureCard
+          <SolucoesCard
             title={feature.title}
             description={feature.description}
-            icon={feature.icon}
           />
         ))
       }
