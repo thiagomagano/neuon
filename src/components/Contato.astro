@@ -2,91 +2,71 @@
 
 ---
 
-<form class="grid grid-cols-1 gap-y-6">
-  <div>
-    <label for="full-name" class="block text-sm font-medium text-secondary-700"
-      >Full Name</label
+<section id="Contato" class="relative py-20 bg-gray-200 overflow-hidden">
+  <!-- Diagonal background elements -->
+
+  <div class="absolute inset-30 bg-clip-content">
+    <div
+      class="absolute -inset-[300vw] bg-gray-100 transform skew-y-[84deg] skew-x-[43deg]"
     >
-    <div class="mt-1">
-      <input
-        type="text"
-        name="full-name"
-        id="full-name"
-        autocomplete="name"
-        class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-gray-300 rounded-md"
-        placeholder="John Doe"
-      />
     </div>
   </div>
 
-  <div>
-    <label for="email" class="block text-sm font-medium text-secondary-700"
-      >Email</label
-    >
-    <div class="mt-1">
-      <input
-        id="email"
-        name="email"
-        type="email"
-        autocomplete="email"
-        class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-gray-300 rounded-md"
-        placeholder="john.doe@example.com"
-      />
+  <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Vamos conversar sobre o seu negócio?
+      </h2>
+
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+            placeholder="Nome"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            name="sobrenome"
+            id="sobrenome"
+            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+            placeholder="Sobrenome"
+          />
+        </div>
+
+        <div class="md:col-span-2">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+            placeholder="E-mail"
+          />
+        </div>
+
+        <div class="md:col-span-2">
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="6"
+            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+            placeholder="Escreva sua mensagem aqui."></textarea>
+        </div>
+
+        <div class="md:col-span-2 flex justify-end">
+          <button
+            type="submit"
+            class="px-8 py-3 bg-laranja hover:bg-amber-500 text-white font-medium transition-colors duration-200"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-
-  <div>
-    <label for="company" class="block text-sm font-medium text-secondary-700"
-      >Company</label
-    >
-    <div class="mt-1">
-      <input
-        type="text"
-        name="company"
-        id="company"
-        autocomplete="organization"
-        class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-gray-300 rounded-md"
-        placeholder="Your Company"
-      />
-    </div>
-  </div>
-
-  <div>
-    <label for="phone" class="block text-sm font-medium text-secondary-700"
-      >Phone</label
-    >
-    <div class="mt-1">
-      <input
-        type="text"
-        name="phone"
-        id="phone"
-        autocomplete="tel"
-        class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-gray-300 rounded-md"
-        placeholder="+1 (555) 987-6543"
-      />
-    </div>
-  </div>
-
-  <div>
-    <label for="message" class="block text-sm font-medium text-secondary-700"
-      >Message</label
-    >
-    <div class="mt-1">
-      <textarea
-        id="message"
-        name="message"
-        rows="4"
-        class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-gray-300 rounded-md"
-        placeholder="Tell us about your project and how we can help..."
-      ></textarea>
-    </div>
-  </div>
-
-  <div>
-    <button
-      type="submit"
-      class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-      Submit
-    </button>
-  </div>
-</form>
+</section>

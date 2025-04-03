@@ -1,7 +1,7 @@
 ---
 // Define the navigation items
 const navItems = [
-  { text: "Inicio", href: "/" },
+  { text: "Inicio", href: "#Hero" },
   { text: "Sobre", href: "#Sobre" },
   { text: "Soluções", href: "#Solucoes" },
   { text: "Avaliações", href: "#Avaliacoes" },
@@ -14,13 +14,15 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur border-b border-gray-200">
+  class="sticky text-white top-0 z-40 w-full bg-azul-escuro/95 backdrop-blur border-b border-azul-escuro"
+>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex-shrink-0 flex items-center">
         <a href="/" class="flex items-center">
-          <span class="text-2xl font-bold text-primary-700">Neuon</span>
+          <img src="/images/neuon-logo-white.svg" alt="Logo Neuon" />
+          <span class="text-2xl font-bold text-primary-700 hidden">Neuon</span>
         </a>
       </div>
 
@@ -30,11 +32,12 @@ const currentPath = Astro.url.pathname;
           navItems.map((item) => (
             <a
               href={item.href}
-              class={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
+              class={`inline-flex items-center px-1 pt-1 text-sm uppercase font-medium border-b-2 ${
                 currentPath === item.href
                   ? "border-primary-600 text-secondary-900"
                   : "border-transparent text-secondary-600 hover:text-secondary-900 hover:border-secondary-300"
-              }`}>
+              }`}
+            >
               {item.text}
             </a>
           ))
@@ -42,66 +45,63 @@ const currentPath = Astro.url.pathname;
       </nav>
 
       <!-- CTA Button -->
-      <div class="hidden md:flex items-center">
-        <a
-          href="/contact"
-          class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-          Get Started
-        </a>
-      </div>
-
-      <!-- Mobile menu button -->
-      <div class="flex md:hidden">
-        <button
-          type="button"
-          id="mobile-menu-button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-secondary-400 hover:text-secondary-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-          aria-controls="mobile-menu"
-          aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <!-- Hamburger icon -->
-          <svg
-            class="block h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
     </div>
-  </div>
 
-  <!-- Mobile Menu, hidden by default -->
-  <div class="md:hidden hidden" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            class={`block px-3 py-2 rounded-md text-base font-medium ${
-              currentPath === item.href
-                ? "bg-primary-50 text-primary-700"
-                : "text-secondary-600 hover:bg-gray-50 hover:text-secondary-900"
-            }`}>
-            {item.text}
-          </a>
-        ))
-      }
-      <a
-        href="/contact"
-        class="block w-full text-center px-4 py-2 mt-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-        Get Started
-      </a>
+    <!-- Mobile menu button -->
+    <div class="flex md:hidden">
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="inline-flex items-center justify-center p-2 rounded-md text-secondary-400 hover:text-secondary-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <!-- Hamburger icon -->
+        <svg
+          class="block h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu, hidden by default -->
+<div class="md:hidden hidden" id="mobile-menu">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`block px-3 py-2 rounded-md text-base font-medium ${
+            currentPath === item.href
+              ? "bg-primary-50 text-primary-700"
+              : "text-secondary-600 hover:bg-gray-50 hover:text-secondary-900"
+          }`}
+        >
+          {item.text}
+        </a>
+      ))
+    }
+    <a
+      href="/contact"
+      class="block w-full text-center px-4 py-2 mt-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+    >
+      Get Started
+    </a>
+  </div>
+</div>
 
 <script>
   // Toggle mobile menu
@@ -112,7 +112,7 @@ const currentPath = Astro.url.pathname;
     mobileMenuButton.addEventListener("click", () => {
       const expanded =
         mobileMenuButton.getAttribute("aria-expanded") === "true";
-      mobileMenuButton.setAttribute("aria-expanded", !expanded);
+      mobileMenuButton.setAttribute("aria-expanded", (!expanded).toString());
       mobileMenu.classList.toggle("hidden");
     });
   }

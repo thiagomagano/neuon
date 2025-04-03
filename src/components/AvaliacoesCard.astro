@@ -3,30 +3,22 @@ export interface Props {
   quote: string;
   name: string;
   title: string;
-  company: string;
   imageSrc?: string;
 }
 
-const {
-  quote,
-  name,
-  title,
-  company,
-  imageSrc = "/images/placeholder-avatar.png",
-} = Astro.props;
+const { quote, name, title, imageSrc } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-  <div class="flex items-center mb-4">
-    <div class="flex-shrink-0">
-      <img class="h-12 w-12 rounded-full" src={imageSrc} alt={name} />
+<div class="bg-[#063099] text-white shadow-sm border-t border-azul-escuro p-6">
+  <div class="flex items-center">
+    <div class="flex-shrink-0 px-4">
+      <img class="h-34 w-34 rounded-full" src={imageSrc} alt={name} />
     </div>
-    <div class="ml-4">
-      <h4 class="text-lg font-medium text-secondary-900">{name}</h4>
-      <p class="text-sm text-secondary-600">{title}, {company}</p>
+    <div class="ml-6 flex-1">
+      <h4 class="text-lg font-semibold uppercase mb-4">{name} - {title}</h4>
+      <blockquote>
+        <p class="text-base text-secondary-700 italic">"{quote}"</p>
+      </blockquote>
     </div>
   </div>
-  <blockquote>
-    <p class="text-base text-secondary-700 italic">"{quote}"</p>
-  </blockquote>
 </div>
