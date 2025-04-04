@@ -1,15 +1,21 @@
 ---
 // Hero.astro - A hero section component with diagonal split design
+const headline =
+  "Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya.";
+
+const ctaButton = {
+  text: "Saiba Mais",
+  url: "#Contato",
+};
 ---
 
 <section id="Hero" class="hero-container">
   <div class="hero-content">
     <div class="hero-text font-normal space-y-8">
       <h1 class="text-5xl max-w-xl text-white pt-20 leading-14">
-        Especialistas em otimizar operações e maximizar lucros através do ERP
-        Sankhya.
+        {headline}
       </h1>
-      <a href="#Contato" class="cta-button">Solicite uma demonstração</a>
+      <a href={ctaButton.url} class="cta-button">{ctaButton.text}</a>
     </div>
   </div>
 </section>
