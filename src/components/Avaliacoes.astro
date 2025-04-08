@@ -39,17 +39,77 @@ const testimonials = [
       </h2>
     </div>
 
-    <div class="mt-12 grid gap-8 md:grid-cols-2">
-      {
-        testimonials.map((testimonial) => (
-          <TestimonialCard
-            quote={testimonial.quote}
-            name={testimonial.name}
-            title={testimonial.title}
-            imageSrc={testimonial.imageSrc}
-          />
-        ))
-      }
+    <!-- Swiper container replacing the grid -->
+    <div class="mt-12 testimonial-swiper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {
+            testimonials.map((testimonial) => (
+              <div class="swiper-slide flex justify-center">
+                <TestimonialCard
+                  quote={testimonial.quote}
+                  name={testimonial.name}
+                  title={testimonial.title}
+                  imageSrc={testimonial.imageSrc}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <!-- Pagination dots moved outside the swiper container -->
+      <div class="swiper-pagination mt-8"></div>
     </div>
   </div>
 </section>
+
+<!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+
+<style>
+  .testimonial-swiper {
+    width: 100%;
+    padding-bottom: 50px; /* Space for pagination dots */
+    position: relative;
+  }
+
+  :global(.swiper-pagination) {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 2rem;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: var(--color-azul-escuro) !important;
+    opacity: 0.3;
+    margin: 0 5px !important;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+
+  // Initialize Swiper
+  const swiper = new Swiper(".testimonial-swiper .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".testimonial-swiper .swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
