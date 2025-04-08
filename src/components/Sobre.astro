@@ -1,12 +1,14 @@
 <section id="Sobre" class="py-20 bg-white">
-  <div class="grid grid-cols-2 container mx-auto">
+  <div class="grid md:grid-cols-2 container mx-auto space-y-16">
     <h2 class="text-3xl text-azul font-semibold max-w-md">
       A Neuon é uma empresa especializada em conectar tecnologia e inteligência
       para impulsionar negócios por meio do ERP Sankhya.
     </h2>
     <div class="text-azul-escuro flex flex-col">
-      <h2 class="text-3xl text-azul-escuro font-semibold pb-4">SOBRE</h2>
-      <p class="text-balance">
+      <h2 class="text-3xl text-azul-escuro font-semibold pb-4">
+        NOSSA HISTÓRIA
+      </h2>
+      <p class="text-pretty">
         Com um time altamente qualificado e experiente, oferecemos consultoria,
         desenvolvimento, suporte e implementação, garantindo que empresas de
         médio e grande porte alcancem mais eficiência e controle em suas
@@ -14,17 +16,55 @@
         entregando soluções personalizadas que se adaptam às necessidades
         específicas de cada cliente.
       </p>
-      <button class="self-end text-xs py-3">LER MAIS</button>
+
+      <div id="accordion-container" class="overflow-hidden max-h-0">
+        <p id="maisTexto" class="pt-8 text-pretty">
+          Nosso diferencial está na alta senioridade da equipe, no atendimento
+          remoto de excelência e na capacidade de oferecer suporte ágil e
+          estratégico. Acreditamos que a tecnologia deve ser um facilitador do
+          crescimento empresarial, e por isso, trabalhamos para otimizar
+          processos, reduzir custos e aumentar a produtividade. Com inovação,
+          expertise e compromisso, a Neuon se torna o parceiro ideal para
+          negócios que buscam evolução contínua e alto desempenho.
+        </p>
+      </div>
+      <button id="lerMaisBtn" class="self-end text-xs pt-6 pb-2"
+        >LER MAIS</button
+      >
       <hr />
-      <p class="hidden">
-        Nosso diferencial está na alta senioridade da equipe, no atendimento
-        remoto de excelência e na capacidade de oferecer suporte ágil e
-        estratégico. Acreditamos que a tecnologia deve ser um facilitador do
-        crescimento empresarial, e por isso, trabalhamos para otimizar
-        processos, reduzir custos e aumentar a produtividade. Com inovação,
-        expertise e compromisso, a Neuon se torna o parceiro ideal para negócios
-        que buscam evolução contínua e alto desempenho.
-      </p>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lerMaisBtn = document.getElementById("lerMaisBtn");
+    const accordionContainer = document.getElementById("accordion-container");
+
+    if (lerMaisBtn && accordionContainer) {
+      let isOpen = false;
+
+      lerMaisBtn.addEventListener("click", () => {
+        isOpen = !isOpen;
+
+        if (isOpen) {
+          // Abrir o accordion
+          accordionContainer.classList.remove("max-h-0");
+          accordionContainer.classList.add("max-h-96");
+          lerMaisBtn.textContent = "FECHAR";
+        } else {
+          // Fechar o accordion
+          accordionContainer.classList.remove("max-h-96");
+          accordionContainer.classList.add("max-h-0");
+          lerMaisBtn.textContent = "LER MAIS";
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  #accordion-container {
+    transition: max-height 0.5s ease;
+  }
+</style>
