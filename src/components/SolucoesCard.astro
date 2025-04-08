@@ -7,14 +7,83 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<div
-  class="flex flex-col h-full hover:shadow-md transition-shadow duration-300"
->
-  <div class="p-6 flex flex-col h-full">
-    <div class="flex items-center mb-4">
+<div class="">
+  <div class="py-4 cursor-pointer accordion-header">
+    <div class="flex items-center justify-between">
       <h3 class="text-2xl font-semibold text-azul uppercase">{title}</h3>
+      <svg
+        class="w-6 h-6 text-azul transform transition-transform duration-300 accordion-arrow"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
     </div>
-    <hr class="bg-azul h-0.5 mb-4" />
-    <p class="mt-1">{description}</p>
   </div>
+  <div
+    class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+  >
+    <div class="pb-6 pt-2">
+      <p class="text-azul-escuro">{description}</p>
+    </div>
+  </div>
+  <hr class="border-t border-azul" />
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const accordionHeaders = document.querySelectorAll(".accordion-header");
+    
+    // Function to close all accordions
+    const closeAllAccordions = () => {
+      accordionHeaders.forEach(header => {
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector(".accordion-arrow");
+        
+        content.style.maxHeight = "0px";
+        content.classList.remove("active");
+        arrow?.classList.remove("rotate-180");
+      });
+    };
+
+    accordionHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector(".accordion-arrow");
+        const isActive = content.classList.contains("active");
+
+        // Close all accordions first
+        closeAllAccordions();
+        
+        // If the clicked accordion wasn't active, open it
+        if (!isActive) {
+          content.style.maxHeight = `${content.scrollHeight}px`;
+          content.classList.add("active");
+          arrow?.classList.add("rotate-180");
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .accordion-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+</style>
