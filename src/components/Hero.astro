@@ -1,7 +1,9 @@
 ---
-// Hero.astro - A hero section component with diagonal split design
-const headline =
-  "Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya.";
+// Hero.astro - A hero section component with diagonal split design and slider functionality
+const headlines = [
+  "Especialistas em otimizar operações e maximizar lucros através do ERP Sankhya.",
+  "Simplifique processos. Amplifique resultados. ",
+];
 
 const ctaButton = {
   text: "Saiba Mais",
@@ -9,30 +11,107 @@ const ctaButton = {
 };
 ---
 
-<section id="Hero" class="hero-container">
-  <div class="hero-content">
-    <div class="hero-text font-normal space-y-8">
-      <h1 class="text-5xl max-w-xl text-white pt-32 leading-16 text-pretty">
-        {headline}
-      </h1>
-      <a href={ctaButton.url} class="cta-button bg-laranja">{ctaButton.text}</a>
+<section id="Hero" class="relative h-[800px] w-full overflow-hidden">
+  <div class="relative h-full w-full">
+    <!-- First slide with diagonal design -->
+    <div
+      class="hero-slide slide-1 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-cover bg-right-top bg-no-repeat"
+      style="background-image: url('/images/hero.png')"
+    >
+      <div class="relative h-full w-full max-w-7xl mx-auto z-10">
+        <div class="relative z-10 pl-8 pt-32 space-y-8">
+          <h1 class="text-5xl max-w-xl text-white leading-tight">
+            {headlines[0]}
+          </h1>
+          <a
+            href={ctaButton.url}
+            class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300"
+          >
+            {ctaButton.text}
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Second slide with navy background and gold lines -->
+    <div
+      class="hero-slide slide-2 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-azul-escuro overflow-hidden"
+    >
+      <div
+        class="gold-line-top absolute md:w-[250%] h-[2px] bg-laranja top-[30%] -left-1/2 rotate-[135deg]"
+      >
+      </div>
+      <div
+        class="gold-line-bottom absolute md:w-[150%] h-[2px] bg-laranja top-[18%] -right-1/2 -rotate-[135deg]"
+      >
+      </div>
+
+      <div class="relative h-full w-full max-w-7xl mx-auto z-10">
+        <div
+          class="relative z-10 container pt-32 grid grid-cols-2 min-h-[65svh]"
+        >
+          <div class="flex flex-col gap-4">
+            <h1 class="text-5xl max-w-xl text-white leading-tight">
+              {headlines[1]}
+            </h1>
+            <p class="text-2xl text-white mb-10 max-w-md">
+              Neuon. Conectando negócios à tecnologia.
+            </p>
+            <div>
+              <a
+                href={ctaButton.url}
+                class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300"
+              >
+                {ctaButton.text}
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-16 flex gap-8 pt-4 self-end place-self-end">
+            <div>
+              <img
+                src="/images/icons/pc.svg"
+                alt="Icone Tecnologia"
+                class="w-10 h-10 opacity-90"
+              />
+            </div>
+            <div>
+              <img
+                src="/images/icons/wifi.svg"
+                alt="Icone Conectividade"
+                class="w-10 h-10 opacity-90"
+              />
+            </div>
+            <div>
+              <img
+                src="/images/icons/ideia.svg"
+                alt="Icone Lampada"
+                class="w-10 h-10 opacity-90"
+              />
+            </div>
+          </div>
+        </div>
+        <hr class="bg-white h-0.75 mt-6" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider navigation dots -->
+  <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
+    <button
+      class="dot w-3 h-3 rounded-full bg-white/50 border-none cursor-pointer transition-colors duration-300"
+      aria-label="Slide 1"
+      data-slide="0"></button>
+    <button
+      class="dot w-3 h-3 rounded-full bg-white/50 border-none cursor-pointer transition-colors duration-300"
+      aria-label="Slide 2"
+      data-slide="1"></button>
   </div>
 </section>
 
 <style>
-  .hero-container {
-    position: relative;
-    height: 800px;
-    width: 100%;
-    overflow: hidden;
-    background-image: url("/images/hero.png");
-    background-size: cover;
-    background-position: right top;
-    background-repeat: no-repeat;
-  }
-
-  .hero-container::before {
+  /* Custom styles that can't be easily done with Tailwind */
+  .slide-1::before {
     content: "";
     position: absolute;
     top: 0;
@@ -44,44 +123,57 @@ const ctaButton = {
     z-index: 1;
   }
 
-  .hero-content {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  .hero-slide.active {
+    opacity: 1;
     z-index: 2;
-    display: flex;
-    align-items: start;
   }
 
-  .cta-button {
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .cta-button:hover {
-    background-color: #d69915;
+  .dot.active {
+    background-color: white;
   }
 
   @media (max-width: 768px) {
-    .hero-container::before {
-      width: 100%;
-      clip-path: polygon(0 0, 80% 0%, 40% 100%, 0 72%);
-    }
-
-    .hero-text {
-      width: 100%;
-      padding: 2rem 1rem;
-    }
-
-    .hero-text h1 {
-      font-size: 2rem;
+    .slide-1::before {
+      width: 0%;
     }
   }
 </style>
+
+<script>
+  // Slider functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".dot");
+    let currentSlide = 0;
+
+    // Set initial active slide
+    slides[0].classList.add("active");
+    dots[0].classList.add("active");
+
+    // Function to change slide
+    function goToSlide(index: number) {
+      // Remove active class from all slides and dots
+      slides.forEach((slide) => slide.classList.remove("active"));
+      dots.forEach((dot) => dot.classList.remove("active"));
+
+      // Add active class to current slide and dot
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+
+      currentSlide = index;
+    }
+
+    // Add click event to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+      });
+    });
+
+    // Auto-rotate slides every 5 seconds
+    setInterval(() => {
+      const nextSlide = (currentSlide + 1) % slides.length;
+      goToSlide(nextSlide);
+    }, 5000);
+  });
+</script>
