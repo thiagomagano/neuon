@@ -1,78 +1,163 @@
 ---
 // Clientes.astro - A section to showcase Neuon's clients
+
+// Define an array of client data
+const logos = [
+  {
+    id: 1,
+    name: "Client 1",
+    logo: "/images/clientes/cliente-1.svg",
+  },
+  {
+    id: 2,
+    name: "Client 2",
+    logo: "/images/clientes/cliente-2.svg",
+  },
+  {
+    id: 3,
+    name: "Client 3",
+    logo: "/images/clientes/cliente-3.svg",
+  },
+  {
+    id: 4,
+    name: "Client 1",
+    logo: "/images/clientes/cliente-1.svg",
+  },
+  {
+    id: 5,
+    name: "Client 2",
+    logo: "/images/clientes/cliente-2.svg",
+  },
+  {
+    id: 6,
+    name: "Client 3",
+    logo: "/images/clientes/cliente-3.svg",
+  },
+];
 ---
 
-<section id="Clientes" class="w-full bg-gray-100">
-  <div class="container w-full bg-gray-100 py-32 mx-auto">
+<section id="Clientes" class="w-full bg-gray-100 overflow-hidden">
+  <div class="container w-full bg-gray-100 pt-24 mx-auto">
     <div class="flex flex-col items-center mb-12">
       <span class="text-laranja text-3xl mb-2">❤</span>
-      <h3 class="text-4xl font-semibold text-azul-escuro">NOSSO CLIENTES</h3>
-    </div>
-
-    <!-- Client logos grid -->
-    <div class="space-y-20 pt-24">
-      <!-- First row of logos -->
-      <div class="grid grid-cols-4 gap-4">
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-1.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-2.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-3.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-1.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-      </div>
-      <!-- First row of logos -->
-      <div class="grid grid-cols-4 gap-4">
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-2.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-3.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-1.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="/images/clientes/cliente-3.svg"
-            alt="Client Logo"
-            class="h-10"
-          />
-        </div>
-      </div>
+      <h3 class="text-3xl font-semibold text-azul-escuro font-figtree">
+        NOSSOS PARCEIROS
+      </h3>
     </div>
   </div>
+
+  <div class="logo-scroller pt-8 pb-24" id="logoScroller">
+    <div class="logo-content" id="logoContent">
+      {
+        logos.map((client) => (
+          <div class="logo-item">
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="logo-image"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Clone for seamless loop -->
+    <div class="logo-content clone hidden md:block">
+      {
+        logos.map((client) => (
+          <div class="logo-item">
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="logo-image"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <style>
+    .logo-scroller-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: #f9fafb;
+      padding: 2rem 0;
+    }
+
+    .logo-scroller {
+      overflow-x: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .logo-content {
+      display: inline-block;
+    }
+
+    .logo-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 2rem;
+      height: 40px;
+      min-width: 120px;
+    }
+
+    .logo-image {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    * Responsive adjustments */ @media (max-width: 768px) {
+      .logo-item {
+        min-width: 100px;
+        margin: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-item {
+        min-width: 80px;
+        margin: 0 0.75rem;
+      }
+    }
+
+    .logo-image {
+      height: 3rem;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  </style>
+
+  <script>
+    // This script will run client-side
+    document.addEventListener("DOMContentLoaded", () => {
+      const scroller = document.getElementById("logoScroller");
+      const content = document.getElementById("logoContent");
+
+      if (!scroller || !content) return;
+
+      const scrollSpeed = 1; // pixels per frame
+      const contentWidth = content.offsetWidth;
+
+      let scrollPos = 0;
+
+      function animate() {
+        scrollPos += scrollSpeed;
+
+        // Reset position for seamless loop
+        if (scrollPos >= contentWidth) {
+          scrollPos = 0;
+        }
+
+        scroller.scrollLeft = scrollPos;
+        requestAnimationFrame(animate);
+      }
+
+      // Start animation
+      requestAnimationFrame(animate);
+    });
+  </script>
 </section>
