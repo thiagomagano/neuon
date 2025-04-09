@@ -1,0 +1,70 @@
+---
+// Propriedades opcionais para personalizar o banner
+interface Props {
+  text?: string;
+  position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+}
+
+const { 
+  text = "Versão Prévia", 
+  position = "top-right" 
+} = Astro.props;
+
+// Mapeamento de posições para classes CSS
+const positionClasses = {
+  'top-right': 'top-right',
+  'top-left': 'top-left',
+  'bottom-right': 'bottom-right',
+  'bottom-left': 'bottom-left'
+};
+
+const positionClass = positionClasses[position];
+---
+
+<div class={`corner-ribbon ${positionClass}`}>
+  {text}
+</div>
+
+<style>
+  .corner-ribbon {
+    width: 200px;
+    background: #e43;
+    position: fixed;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    z-index: 9999;
+  }
+
+  /* Top right corner */
+  .corner-ribbon.top-right {
+    top: 25px;
+    right: -50px;
+    transform: rotate(45deg);
+  }
+
+  /* Top left corner */
+  .corner-ribbon.top-left {
+    top: 25px;
+    left: -50px;
+    transform: rotate(-45deg);
+  }
+
+  /* Bottom right corner */
+  .corner-ribbon.bottom-right {
+    bottom: 25px;
+    right: -50px;
+    transform: rotate(-45deg);
+  }
+
+  /* Bottom left corner */
+  .corner-ribbon.bottom-left {
+    bottom: 25px;
+    left: -50px;
+    transform: rotate(45deg);
+  }
+</style>

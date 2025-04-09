@@ -1,15 +1,20 @@
 ---
+import PreviewBanner from "./PreviewBanner.astro";
+
 // Definindo items de navegação do site.
 const navItems = [
   { text: "Inicio", href: "#Hero" },
-  { text: "Sobre", href: "#Sobre" },
+  { text: "Nossa Historia", href: "#Sobre" },
   { text: "Soluções", href: "#Solucoes" },
   { text: "Avaliações", href: "#Avaliacoes" },
-  { text: "Clientes", href: "#Clientes" },
+  { text: "Parceiros", href: "#Parceiros" },
   { text: "Contato", href: "#Contato" },
   { text: "Trabalhe Conosco", href: "#" },
 ];
 ---
+
+<!-- Adicionando o banner de prévia -->
+<PreviewBanner position="bottom-right" />
 
 <header
   class="sticky text-white top-0 z-40 w-full bg-azul-escuro/95 backdrop-blur border-b border-azul-escuro"
