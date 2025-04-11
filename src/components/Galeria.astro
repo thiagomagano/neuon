@@ -3,26 +3,26 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const prints = [
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
+    {
+        image: "/images/prints/print-1.png",
+        alt: "Print da tela do computador",
+    },
+    {
+        image: "/images/prints/print-1.png",
+        alt: "Print da tela do computador",
+    },
+    {
+        image: "/images/prints/print-1.png",
+        alt: "Print da tela do computador",
+    },
+    {
+        image: "/images/prints/print-1.png",
+        alt: "Print da tela do computador",
+    },
+    {
+        image: "/images/prints/print-1.png",
+        alt: "Print da tela do computador",
+    },
 ];
 
 // State for modal
@@ -31,183 +31,183 @@ const { modalOpen = false } = Astro.props;
 
 <!-- Swiper CSS -->
 <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
 />
 
 <div class="gallery-section">
-  <div class="container mx-auto px-4">
-    <div class="gallery-container md:w-2/3">
-      <div class="swiper-container">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            {
-              prints.map((print, index) => (
-                <div class="swiper-slide">
-                  <img
-                    class="gallery-image cursor-pointer"
-                    src={print.image}
-                    alt={print.alt}
-                    data-index={index}
-                  />
+    <div class="container mx-auto px-4">
+        <div class="gallery-container md:w-2/3">
+            <div class="swiper-container">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        {
+                            prints.map((print, index) => (
+                                <div class="swiper-slide">
+                                    <img
+                                        class="gallery-image cursor-pointer"
+                                        src={print.image}
+                                        alt={print.alt}
+                                        data-index={index}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-              ))
-            }
-          </div>
-          <!-- <div class="swiper-pagination"></div> -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- Modal for image preview -->
 <div
-  id="imageModal"
-  class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center"
+    id="imageModal"
+    class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center"
 >
-  <!-- Modal content remains unchanged -->
-  <button id="closeModal" class="absolute top-4 right-4 text-white text-2xl"
-    >&times;</button
-  >
-  <button id="prevImage" class="absolute left-4 text-white text-4xl"
-    >&lt;</button
-  >
-  <button id="nextImage" class="absolute right-4 text-white text-4xl"
-    >&gt;</button
-  >
-  <img id="modalImage" class="max-h-[90vh] max-w-[90vw]" src="" alt="" />
+    <!-- Modal content remains unchanged -->
+    <button id="closeModal" class="absolute top-4 right-4 text-white text-2xl"
+        >&times;</button
+    >
+    <button id="prevImage" class="absolute left-4 text-white text-4xl"
+        >&lt;</button
+    >
+    <button id="nextImage" class="absolute right-4 text-white text-4xl"
+        >&gt;</button
+    >
+    <img id="modalImage" class="max-h-[90vh] max-w-[90vw]" src="" alt="" />
 </div>
 
 <style>
-  .gallery-section {
-    width: 100%;
-  }
-  .gallery-container {
-    width: 100%;
-  }
-  .swiper-container {
-    width: 100%;
-    overflow: hidden;
-  }
-  .gallery-image {
-    width: 250px;
-    height: 150px;
-    object-fit: contain;
-    transition: transform 0.3s;
-  }
-  .gallery-image:hover {
-    transform: scale(1.05);
-  }
+    .gallery-section {
+        width: 100%;
+    }
+    .gallery-container {
+        width: 100%;
+    }
+    .swiper-container {
+        width: 100%;
+        overflow: hidden;
+    }
+    .gallery-image {
+        width: 250px;
+        height: 150px;
+        object-fit: contain;
+        transition: transform 0.3s;
+    }
+    .gallery-image:hover {
+        transform: scale(1.05);
+    }
 
-  /* Smaller navigation arrows */
-  :global(.swiper-button-next),
-  :global(.swiper-button-prev) {
-    width: 50px !important;
-    height: 50px !important;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: var(--color-azul) !important;
-  }
-  :global(.swiper-button-next:after),
-  :global(.swiper-button-prev:after) {
-    font-size: 18px !important;
-    font-weight: bold;
-  }
+    /* Smaller navigation arrows */
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        width: 50px !important;
+        height: 50px !important;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--color-azul) !important;
+    }
+    :global(.swiper-button-next:after),
+    :global(.swiper-button-prev:after) {
+        font-size: 18px !important;
+        font-weight: bold;
+    }
 </style>
 
 <script>
-  // Import Swiper JS
-  import Swiper from "swiper/bundle";
+    // Import Swiper JS
+    import Swiper from "swiper/bundle";
 
-  // Initialize Swiper
-  const swiperGalery = new Swiper(".swiper", {
-    slidesPerView: "auto",
-    spaceBetween: 16,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 1,
-      },
-      1024: {
-        slidesPerView: 2,
-      },
-    },
-  });
-
-  // Modal functionality
-  const images = document.querySelectorAll(".gallery-image");
-  const modal = document.getElementById("imageModal");
-  const modalImage = document.getElementById("modalImage");
-  const closeBtn = document.getElementById("closeModal");
-  const prevBtn = document.getElementById("prevImage");
-  const nextBtn = document.getElementById("nextImage");
-  let currentIndex = 0;
-
-  // Open modal when clicking on an image
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      currentIndex = parseInt(img.dataset.index);
-      updateModalImage();
-      modal.classList.remove("hidden");
+    // Initialize Swiper
+    const swiperGalery = new Swiper(".swiper", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 1,
+            },
+            1024: {
+                slidesPerView: 2,
+            },
+        },
     });
-  });
 
-  // Close modal
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
+    // Modal functionality
+    const images = document.querySelectorAll(".gallery-image");
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("closeModal");
+    const prevBtn = document.getElementById("prevImage");
+    const nextBtn = document.getElementById("nextImage");
+    let currentIndex = 0;
 
-  // Navigate to previous image
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateModalImage();
-  });
+    // Open modal when clicking on an image
+    images.forEach((img) => {
+        img.addEventListener("click", () => {
+            currentIndex = parseInt(img.dataset.index);
+            updateModalImage();
+            modal.classList.remove("hidden");
+        });
+    });
 
-  // Navigate to next image
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateModalImage();
-  });
+    // Close modal
+    closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
 
-  // Update modal image
-  function updateModalImage() {
-    const img = images[currentIndex];
-    modalImage.src = img.src;
-    modalImage.alt = img.alt;
-  }
+    // Navigate to previous image
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateModalImage();
+    });
 
-  // Close modal when clicking outside the image
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
+    // Navigate to next image
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateModalImage();
+    });
+
+    // Update modal image
+    function updateModalImage() {
+        const img = images[currentIndex];
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
     }
-  });
 
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
-    if (modal.classList.contains("hidden")) return;
+    // Close modal when clicking outside the image
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.add("hidden");
+        }
+    });
 
-    if (e.key === "Escape") {
-      modal.classList.add("hidden");
-    } else if (e.key === "ArrowLeft") {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateModalImage();
-    } else if (e.key === "ArrowRight") {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateModalImage();
-    }
-  });
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (modal.classList.contains("hidden")) return;
+
+        if (e.key === "Escape") {
+            modal.classList.add("hidden");
+        } else if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        } else if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        }
+    });
 </script>
