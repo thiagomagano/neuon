@@ -1,5 +1,5 @@
 ---
-import PreviewBanner from "./PreviewBanner.astro";
+import PreviewBanner from "../PreviewBanner.astro";
 
 // Definindo items de navegação do site.
 const navItems = [
@@ -17,8 +17,7 @@ const navItems = [
 <PreviewBanner position="bottom-right" />
 
 <header
-  class="sticky text-white top-0 z-40 w-full bg-azul-escuro/95 backdrop-blur border-b border-azul-escuro"
->
+  class="sticky text-white top-0 z-40 w-full bg-azul-escuro/95 backdrop-blur border-b border-azul-escuro">
   <div class="relative overflow-hidden">
     <!-- Angled background for the right section -->
     <div class="absolute right-0 top-0 h-full w-1/4 bg-laranja skew-section">
@@ -44,8 +43,7 @@ const navItems = [
             navItems.map((item) => (
               <a
                 href={item.href}
-                class="inline-flex items-center px-1 pt-1 text-xs uppercase font-medium text-white  hover:text-gray-300"
-              >
+                class="inline-flex items-center px-1 pt-1 text-xs uppercase font-medium text-white  hover:text-gray-300">
                 {item.text}
               </a>
             ))
@@ -56,8 +54,7 @@ const navItems = [
         <div class="hidden md:block">
           <a
             href="#Contato"
-            class="inline-flex items-center justify-center h-full px-6 py-4 text-base font-medium text-white hover:underline"
-          >
+            class="inline-flex items-center justify-center h-full px-6 py-4 text-base font-medium text-white hover:underline">
             Solicite uma demonstração
           </a>
         </div>
@@ -69,8 +66,7 @@ const navItems = [
             id="mobile-menu-button"
             class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-300 focus:outline-none"
             aria-controls="mobile-menu"
-            aria-expanded="false"
-          >
+            aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <!-- Hamburger icon -->
             <svg
@@ -79,8 +75,7 @@ const navItems = [
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              aria-hidden="true"
-            >
+              aria-hidden="true">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -101,16 +96,14 @@ const navItems = [
       navItems.map((item) => (
         <a
           href={item.href}
-          class="block px-3 py-2 text-base font-medium text-white hover:text-gray-300"
-        >
+          class="block px-3 py-2 text-base font-medium text-white hover:text-gray-300">
           {item.text}
         </a>
       ))
     }
     <a
       href="#Contato"
-      class="block w-full text-center px-4 py-2 mt-4 text-sm font-medium text-white bg-laranja hover:bg-amber-600 focus:outline-none hover:underline"
-    >
+      class="block w-full text-center px-4 py-2 mt-4 text-sm font-medium text-white bg-laranja hover:bg-amber-600 focus:outline-none hover:underline">
       Solicite uma demonstração
     </a>
   </div>
