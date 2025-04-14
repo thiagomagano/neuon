@@ -2,11 +2,11 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 
-import ContactForm from "../components/ContactForm.astro";
+import ContactForm from "../components/ContactForm.tsx";
 ---
 
 <Layout title="teste form">
-    <section class="container mx-auto py-24">
-        <ContactForm />
-    </section>
+  <section class="container mx-auto py-24">
+    <ContactForm client:visible />
+  </section>
 </Layout>
