@@ -1,78 +1,60 @@
 ---
-if (Astro.request.method === "POST") {
-    try {
-        console.log("trying post...");
-        const data = await Astro.request.formData();
-        const nome = data.get("nome");
-        const email = data.get("email");
-        const telefone = data.get("telefone");
-        const mensagem = data.get("mensagem");
-        // Do something with the data
 
-        const contatcData = {
-            nome,
-            email,
-            telefone,
-            mensagem,
-        };
-
-        console.table(contatcData);
-    } catch (error) {
-        if (error instanceof Error) console.error(error.message);
-    }
-}
 ---
 
-<form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post">
-    <div>
-        <input
-            type="text"
-            name="nome"
-            id="nome"
-            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
-            placeholder="Nome"
-            required
-        />
-    </div>
+<form
+  name="contato"
+  class="grid grid-cols-1 md:grid-cols-2 gap-6"
+  method="post"
+  data-netlify="true">
+  <div>
+    <input
+      type="text"
+      name="nome"
+      id="nome"
+      class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+      placeholder="Nome"
+      required
+    />
+  </div>
 
-    <div>
-        <input
-            type="tel"
-            name="telefone"
-            id="telefone"
-            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
-            placeholder="Telefone"
-            required
-        />
-    </div>
+  <div>
+    <input
+      type="tel"
+      name="telefone"
+      id="telefone"
+      class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+      placeholder="Telefone"
+      required
+    />
+  </div>
 
-    <div class="md:col-span-2">
-        <input
-            id="email"
-            name="email"
-            type="email"
-            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
-            placeholder="E-mail"
-            required
-        />
-    </div>
+  <div class="md:col-span-2">
+    <input
+      id="email"
+      name="email"
+      type="email"
+      class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+      placeholder="E-mail"
+      required
+    />
+  </div>
 
-    <div class="md:col-span-2">
-        <textarea
-            id="mensagem"
-            name="mensagem"
-            rows="6"
-            class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
-            placeholder="Escreva sua mensagem aqui."
-            required></textarea>
-    </div>
+  <div class="md:col-span-2">
+    <textarea
+      id="mensagem"
+      name="mensagem"
+      rows="6"
+      class="py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-primary-500 focus:border-primary-500"
+      placeholder="Escreva sua mensagem aqui."
+      required></textarea>
+  </div>
 
-    <div class="md:col-span-2 flex justify-end">
-        <button
-            type="submit"
-            class="px-8 py-3 bg-laranja hover:bg-amber-500 text-white font-medium transition-colors duration-200"
-        >
-            Enviar
-        </button>
-    </div>
+  <div class="md:col-span-2 flex justify-end">
+    <button
+      type="submit"
+      class="px-8 py-3 bg-laranja hover:bg-amber-500 text-white font-medium transition-colors duration-200">
+      Enviar
+    </button>
+  </div>
 </form>
