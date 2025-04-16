@@ -1,8 +1,8 @@
-export const prerender = false; // Not needed in 'server' mode
+export const prerender = false;
 import type { APIRoute } from "astro";
 
 import { Resend } from "resend";
-import ContactEmail from "../../components/ContactEmail";
+import ContactTemplate from "../../emails/ContactTemplate";
 
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 const RESEND_FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL;
@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (!name || !phone || !email || !message) {
     console.error("API Validation failed: Missing fields");
-    return redirect("/contact?error=missing_fields", 307);
+    return redirect("/contato?error=missing_fields", 307);
   }
 
   if (
@@ -52,10 +52,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
     const { data, error } = await resend.emails.send({
       from: RESEND_FROM_EMAIL!,
-      to: [CONTACT_FORM_TO_EMAIL!],
-      subject: `Novo contato via neuon.com.br de: ${name}`,
+      to: [CONTACT_FORM_TO_EMAIL!], //TODO colocar quem quer receber o email do site aqui
+      subject: `Contato via neuon.com.br de: ${name}`,
       replyTo: email,
-      react: await ContactEmail({ name, email, phone, message }), // Use the React email template
+      react: await ContactTemplate({ name, email, phone, message }), // Use the React email template
     });
 
     if (error) {

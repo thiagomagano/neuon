@@ -1,4 +1,3 @@
-// src/emails/ContactEmail.tsx
 import * as React from 'react';
 import { Html, Heading, Text, Container, Section } from '@react-email/components';
 
@@ -17,7 +16,7 @@ export const ContactEmail: React.FC<Readonly<ContactEmailProps>> = ({
 }) => (
   <Html lang="pt-BR">
     <Container>
-      <Heading as="h2">Novo Contato do site da Neuon</Heading>
+      <Heading as="h2">Contato via neuon.com.br de: {name}</Heading>
       <Section>
         <Text><strong>Nome:</strong> {name}</Text>
         <Text><strong>Email:</strong> {email}</Text>
