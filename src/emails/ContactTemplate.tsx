@@ -2,27 +2,27 @@ import * as React from 'react';
 import { Html, Heading, Text, Container, Section } from '@react-email/components';
 
 interface ContactEmailProps {
-  name: string;
+  nome: string;
   email: string;
-  phone: string;
-  message: string;
+  telefone: string;
+  mensagem: string;
 }
 
 export const ContactEmail: React.FC<Readonly<ContactEmailProps>> = ({
-  name,
+  nome,
   email,
-  phone,
-  message,
+  telefone,
+  mensagem,
 }) => (
   <Html lang="pt-BR">
     <Container>
-      <Heading as="h2">Contato via neuon.com.br de: {name}</Heading>
+      <Heading as="h2">Contato via neuon.com.br de: {nome}</Heading>
       <Section>
-        <Text><strong>Nome:</strong> {name}</Text>
+        <Text><strong>Nome:</strong> {nome}</Text>
         <Text><strong>Email:</strong> {email}</Text>
-        {phone && <Text><strong>Telefone:</strong> {phone}</Text>}
+        <Text><strong>Telefone:</strong> {telefone}</Text>
         <Text><strong>Mensagem:</strong></Text>
-        <Text>{message}</Text>
+        <Text>{mensagem}</Text>
       </Section>
     </Container>
   </Html>
