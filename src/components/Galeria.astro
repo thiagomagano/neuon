@@ -15,14 +15,6 @@ const prints = [
     image: "/images/prints/print-1.png",
     alt: "Print da tela do computador",
   },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
-  {
-    image: "/images/prints/print-1.png",
-    alt: "Print da tela do computador",
-  },
 ];
 
 // State for modal
@@ -35,7 +27,7 @@ const { modalOpen = false } = Astro.props;
   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
 />
 
-<div class="gallery-section">
+<div class="gallery-section scrolling-section">
   <div class="container mx-auto px-4">
     <div class="gallery-container md:w-2/3">
       <div class="swiper-container">
@@ -43,7 +35,7 @@ const { modalOpen = false } = Astro.props;
           <div class="swiper-wrapper">
             {
               prints.map((print, index) => (
-                <div class="swiper-slide">
+                <div class="swiper-slide staggered">
                   <img
                     class="gallery-image cursor-pointer"
                     src={print.image}
@@ -55,8 +47,8 @@ const { modalOpen = false } = Astro.props;
             }
           </div>
           <!-- <div class="swiper-pagination"></div> -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev-gallery"></div>
+          <div class="swiper-button-next-gallery"></div>
         </div>
       </div>
     </div>
@@ -126,22 +118,19 @@ const { modalOpen = false } = Astro.props;
     slidesPerView: "auto",
     spaceBetween: 16,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next-gallery",
+      prevEl: ".swiper-button-prev-gallery",
     },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+
     breakpoints: {
       640: {
         slidesPerView: 1,
       },
       768: {
-        slidesPerView: 1,
+        slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 2,
+        slidesPerView: 3,
       },
     },
   });

@@ -1,42 +1,19 @@
 ---
 // Clientes.astro - A section to showcase Neuon's clients
 
-// Define an array of client data
 const logos = [
-  {
-    id: 1,
-    name: "Client 1",
-    logo: "/images/clientes/cliente-1.svg",
-  },
-  {
-    id: 2,
-    name: "Client 2",
-    logo: "/images/clientes/cliente-2.svg",
-  },
-  {
-    id: 3,
-    name: "Client 3",
-    logo: "/images/clientes/cliente-3.svg",
-  },
-  {
-    id: 4,
-    name: "Client 1",
-    logo: "/images/clientes/cliente-1.svg",
-  },
-  {
-    id: 5,
-    name: "Client 2",
-    logo: "/images/clientes/cliente-2.svg",
-  },
-  {
-    id: 6,
-    name: "Client 3",
-    logo: "/images/clientes/cliente-3.svg",
-  },
+  { id: 1, name: "Client 1", logo: "/images/clientes/cliente-1.svg" },
+  { id: 2, name: "Client 2", logo: "/images/clientes/cliente-2.svg" },
+  { id: 3, name: "Client 3", logo: "/images/clientes/cliente-3.svg" },
+  { id: 4, name: "Client 1", logo: "/images/clientes/cliente-1.svg" },
+  { id: 5, name: "Client 2", logo: "/images/clientes/cliente-2.svg" },
+  { id: 6, name: "Client 3", logo: "/images/clientes/cliente-3.svg" },
 ];
 ---
 
-<section id="Parceiros" class="w-full bg-gray-100 overflow-hidden">
+<section
+  id="Parceiros"
+  class="w-full bg-gray-100 overflow-hidden scrolling-section">
   <div class="container w-full bg-gray-100 pt-24 mx-auto">
     <div class="flex flex-col items-center mb-12">
       <span class="text-laranja text-3xl mb-2">❤</span>
@@ -46,30 +23,16 @@ const logos = [
     </div>
   </div>
 
-  <div class="logo-scroller pt-8 pb-24" id="logoScroller">
-    <div class="logo-content" id="logoContent">
+  <div class="logo-scroller pt-8 pb-24">
+    <div class="logo-track" id="logoTrack">
       {
-        logos.map((client) => (
-          <div class="logo-item">
+        logos.concat(logos).map((client, idx) => (
+          <div class="logo-item" key={idx}>
             <img
               src={client.logo}
               alt={`${client.name} logo`}
               class="logo-image"
-            />
-          </div>
-        ))
-      }
-    </div>
-
-    <!-- Clone for seamless loop -->
-    <div class="logo-content clone hidden md:block">
-      {
-        logos.map((client) => (
-          <div class="logo-item">
-            <img
-              src={client.logo}
-              alt={`${client.name} logo`}
-              class="logo-image"
+              draggable="false"
             />
           </div>
         ))
@@ -78,86 +41,86 @@ const logos = [
   </div>
 
   <style>
-    .logo-scroller-container {
-      width: 100%;
-      overflow: hidden;
-      background-color: #f9fafb;
-      padding: 2rem 0;
-    }
-
     .logo-scroller {
-      overflow-x: hidden;
-      white-space: nowrap;
+      width: 100vw;
+      overflow: hidden;
       position: relative;
+      background: #f9fafb;
     }
-
-    .logo-content {
-      display: inline-block;
+    .logo-track {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: max-content;
+      will-change: transform;
+      gap: 2rem;
     }
-
     .logo-item {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 2rem;
-      height: 40px;
       min-width: 120px;
+      height: 40px;
     }
-
     .logo-image {
       height: 38px;
       width: auto;
       object-fit: contain;
+      user-select: none;
+      pointer-events: none;
     }
-
     @media (max-width: 768px) {
       .logo-item {
         min-width: 100px;
-        margin: 0 1rem;
+      }
+      .logo-track {
+        gap: 1rem;
       }
     }
-
     @media (max-width: 480px) {
       .logo-item {
         min-width: 80px;
-        margin: 0 0.75rem;
       }
-    }
-
-    .logo-image {
-      height: 3rem;
-      max-width: 100%;
-      object-fit: contain;
+      .logo-track {
+        gap: 0.75rem;
+      }
     }
   </style>
 
   <script>
-    // This script will run client-side
+    import { animate } from "motion";
+
     document.addEventListener("DOMContentLoaded", () => {
-      const scroller = document.getElementById("logoScroller");
-      const content = document.getElementById("logoContent");
+      const track = document.getElementById("logoTrack");
+      if (!track) return;
 
-      if (!scroller || !content) return;
+      // Wait for all images to load to get correct width
+      const imgs = Array.from(track.querySelectorAll("img"));
+      let loaded = 0;
+      imgs.forEach((img) => {
+        if (img.complete) loaded++;
+        else
+          img.addEventListener("load", () => {
+            loaded++;
+            if (loaded === imgs.length) startMotion();
+          });
+      });
+      if (loaded === imgs.length) startMotion();
 
-      const scrollSpeed = 1; // pixels per frame
-      const contentWidth = content.offsetWidth;
-
-      let scrollPos = 0;
-
-      function animate() {
-        scrollPos += scrollSpeed;
-
-        // Reset position for seamless loop
-        if (scrollPos >= contentWidth) {
-          scrollPos = 0;
-        }
-
-        scroller.scrollLeft = scrollPos;
-        requestAnimationFrame(animate);
+      function startMotion() {
+        // The track is duplicated, so scroll by half its width
+        const trackWidth = track.scrollWidth / 2;
+        track.style.transform = "translateX(0)";
+        animate(
+          track,
+          { transform: [`translateX(0px)`, `translateX(-${trackWidth}px)`] },
+          {
+            duration: 18,
+            easing: "linear",
+            repeat: Infinity,
+          }
+        );
       }
-
-      // Start animation
-      requestAnimationFrame(animate);
     });
   </script>
 </section>

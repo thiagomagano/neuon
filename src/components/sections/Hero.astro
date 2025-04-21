@@ -16,8 +16,7 @@ const ctaButton = {
     <!-- First slide with diagonal design -->
     <div
       class="hero-slide slide-1 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-cover bg-right-top bg-no-repeat"
-      style="background-image: url('/images/hero.png')"
-    >
+      style="background-image: url('/images/hero.png')">
       <div class="relative h-full w-full max-w-7xl mx-auto z-10">
         <div class="relative z-10 pl-8 pt-32 space-y-8">
           <h1 class="text-5xl max-w-xl text-white leading-tight">
@@ -25,8 +24,7 @@ const ctaButton = {
           </h1>
           <a
             href={ctaButton.url}
-            class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300"
-          >
+            class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300">
             {ctaButton.text}
           </a>
         </div>
@@ -35,21 +33,17 @@ const ctaButton = {
 
     <!-- Second slide with navy background and gold lines -->
     <div
-      class="hero-slide slide-2 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-azul-escuro overflow-hidden"
-    >
+      class="hero-slide slide-2 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-azul-escuro overflow-hidden">
       <div
-        class="gold-line-top absolute md:w-[250%] h-[2px] bg-laranja top-[30%] -left-1/2 rotate-[135deg]"
-      >
+        class="gold-line-top absolute md:w-[250%] h-[2px] bg-laranja top-[30%] -left-1/2 rotate-[135deg]">
       </div>
       <div
-        class="gold-line-bottom absolute md:w-[150%] h-[2px] bg-laranja top-[18%] -right-1/2 -rotate-[135deg]"
-      >
+        class="gold-line-bottom absolute md:w-[150%] h-[2px] bg-laranja top-[18%] -right-1/2 -rotate-[135deg]">
       </div>
 
       <div class="relative h-full w-full max-w-7xl mx-auto z-10">
         <div
-          class="relative z-10 container pt-32 grid grid-cols-2 min-h-[65svh]"
-        >
+          class="relative z-10 container pt-32 grid grid-cols-2 min-h-[65svh]">
           <div class="flex flex-col gap-4">
             <h1 class="text-5xl max-w-xl text-white leading-tight">
               {headlines[1]}
@@ -60,8 +54,7 @@ const ctaButton = {
             <div>
               <a
                 href={ctaButton.url}
-                class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300"
-              >
+                class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300">
                 {ctaButton.text}
               </a>
             </div>
@@ -136,6 +129,19 @@ const ctaButton = {
     .slide-1::before {
       width: 0%;
     }
+  }
+
+  section-slide-left {
+    opacity: 0;
+    transform: translateX(60px);
+    transition:
+      opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .section-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 </style>
 
