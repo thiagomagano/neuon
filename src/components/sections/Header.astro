@@ -9,7 +9,7 @@ const navItems = [
   { text: "Avaliações", href: "#Avaliacoes" },
   { text: "Parceiros", href: "#Parceiros" },
   { text: "Contato", href: "#Contato" },
-  { text: "Trabalhe Conosco", href: "#" },
+  { text: "Trabalhe Conosco", href: "#Contato" },
 ];
 ---
 
@@ -20,7 +20,8 @@ const navItems = [
   class="sticky text-white top-0 z-40 w-full bg-azul-escuro/95 backdrop-blur border-b border-azul-escuro">
   <div class="relative overflow-hidden">
     <!-- Angled background for the right section -->
-    <div class="absolute right-0 top-0 h-full w-1/4 bg-laranja skew-section">
+    <div
+      class="absolute right-0 top-0 h-full w-1/4 2xl:w-1/3 bg-laranja skew-section 3xl:hidden">
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -38,7 +39,7 @@ const navItems = [
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-4">
+        <nav class="hidden xl:flex space-x-4">
           {
             navItems.map((item) => (
               <a
@@ -51,16 +52,16 @@ const navItems = [
         </nav>
 
         <!-- CTA Button -->
-        <div class="hidden md:block">
+        <div class="hidden xl:block">
           <a
             href="#Contato"
-            class="inline-flex items-center justify-center h-full px-6 py-4 text-base font-medium text-white hover:underline">
+            class="inline-flex items-center bg-laranja justify-center h-full px-2 py-2 2lx:px-4 2xl:py-2 text-base font-medium text-nowrap text-white hover:underline">
             Solicite uma demonstração
           </a>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex md:hidden">
+        <div class="flex xl:hidden">
           <button
             type="button"
             id="mobile-menu-button"
@@ -114,7 +115,7 @@ const navItems = [
     transform: skewX(-20deg);
     transform-origin: top right;
     right: -2rem; /* Ajuste para garantir que cubra toda a borda direita */
-    width: 33%; /* Ajuste para controlar quanto da navbar é coberta */
+    /* width: 33%; /* Ajuste para controlar quanto da navbar é coberta */
   }
 </style>
 

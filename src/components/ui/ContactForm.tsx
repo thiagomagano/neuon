@@ -21,15 +21,15 @@ type SubmitStatus = {
   message: string;
 } | null;
 
-const MOCK_DATA = {
-  nome: 'TEST',
-  telefone: '9999999999',
-  email: 'TEST@TESTE.COM.BR',
-  mensagem: 'ESSE É UM TESTE DE FUNCIONAMENTO'
-};
+
 export default function ContactForm() {
   // Estados com tipos definidos
-  const [formData, setFormData] = useState<FormData>(MOCK_DATA);
+  const [formData, setFormData] = useState<FormData>({
+    nome: '',
+    telefone: '',
+    email: '',
+    mensagem: ''
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
