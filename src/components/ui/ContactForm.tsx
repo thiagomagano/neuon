@@ -156,7 +156,7 @@ export default function ContactForm() {
               id="nome" 
               value={formData.nome}
               onChange={handleChange}
-              className={`py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.nome ? 'border-red-500' : 'border-gray-300'}`} 
+              className={`py-4 px-4 block w-full  border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.nome ? 'border-red-500' : 'border-gray-300'}`} 
               required
             />
             {errors.nome && <p className="mt-1 text-sm text-red-600">{errors.nome}</p>}
@@ -170,7 +170,7 @@ export default function ContactForm() {
               id="telefone" 
               value={formData.telefone}
               onChange={handleChange}
-              className={`py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.telefone ? 'border-red-500' : 'border-gray-300'}`} 
+              className={`py-4 px-4 block w-full  border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.telefone ? 'border-red-500' : 'border-gray-300'}`} 
               required
             />
             {errors.telefone && <p className="mt-1 text-sm text-red-600">{errors.telefone}</p>}
@@ -184,7 +184,7 @@ export default function ContactForm() {
               id="email" 
               value={formData.email}
               onChange={handleChange}
-              className={`py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-laranja focus:border-laranja${errors.email ? 'border-red-500' : 'border-gray-300'}`} 
+              className={`py-4 px-4 block w-full  border-gray-300 bg-white focus:ring-laranja focus:border-laranja${errors.email ? 'border-red-500' : 'border-gray-300'}`} 
               required
             />
             {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
@@ -198,7 +198,7 @@ export default function ContactForm() {
               rows={4} 
               value={formData.mensagem}
               onChange={handleChange}
-              className={`py-4 px-4 block w-full shadow-sm border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.mensagem ? 'border-red-500' : 'border-gray-300'}`}
+              className={`py-4 px-4 block w-full  border-gray-300 bg-white focus:ring-laranja focus:border-laranja ${errors.mensagem ? 'border-red-500' : 'border-gray-300'}`}
               required
             />
             {errors.mensagem && <p className="mt-1 text-sm text-red-600">{errors.mensagem}</p>}
@@ -208,7 +208,7 @@ export default function ContactForm() {
             <button 
               type="submit"
               disabled={isSubmitting}
-              className="px-8 py-3 bg-laranja hover:bg-amber-500 text-white font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-azul disabled:bg-amber-200 disabled:cursor-not-allowed"
+              className="px-8 py-3 bg-laranja hover:cursor-pointer text-white font-medium  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-azul disabled:bg-amber-200 disabled:cursor-not-allowed transition-all hover:scale-105 duration-300 ease-in-out"
             >
               {isSubmitting ? 'Enviando...' : 'Enviar'}
             </button>

@@ -19,12 +19,12 @@ const ctaButton = {
       style="background-image: url('/images/hero.png')">
       <div class="relative h-full w-full max-w-7xl mx-auto z-10">
         <div class="relative z-10 pl-8 pt-32 space-y-8">
-          <h1 class="text-5xl max-w-xl text-white leading-tight">
+          <h1 class="text-4xl md:text-5xl max-w-xl text-white leading-tight">
             {headlines[0]}
           </h1>
           <a
             href={ctaButton.url}
-            class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300">
+            class="inline-block bg-laranja text-white py-3 px-6 font-medium transition-all hover:scale-105 duration-300 ease-in-out">
             {ctaButton.text}
           </a>
         </div>
@@ -54,7 +54,7 @@ const ctaButton = {
             <div>
               <a
                 href={ctaButton.url}
-                class="inline-block bg-laranja text-white py-3 px-6 font-medium hover:bg-amber-600 transition-colors duration-300">
+                class="inline-block bg-laranja text-white py-3 px-6 font-medium transition-all hover:scale-105 duration-300 ease-in-out">
                 {ctaButton.text}
               </a>
             </div>
@@ -103,7 +103,6 @@ const ctaButton = {
 </section>
 
 <style>
-  /* Custom styles that can't be easily done with Tailwind */
   .slide-1::before {
     content: "";
     position: absolute;
@@ -127,7 +126,12 @@ const ctaButton = {
 
   @media (max-width: 768px) {
     .slide-1::before {
-      width: 0%;
+      width: 100%;
+      clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+    }
+    .slide-1 {
+      background-image: cover url("/images/hero-mobile.png");
+      background-position: center;
     }
   }
 
@@ -180,6 +184,6 @@ const ctaButton = {
     setInterval(() => {
       const nextSlide = (currentSlide + 1) % slides.length;
       goToSlide(nextSlide);
-    }, 5000);
+    }, 8000);
   });
 </script>
