@@ -11,14 +11,16 @@ const ctaButton = {
 };
 ---
 
-<section id="Hero" class="relative h-[800px] w-full overflow-hidden">
+<section
+  id="Hero"
+  class="relative h-[730px] md:h-[830px] w-full overflow-hidden">
   <div class="relative h-full w-full">
     <!-- First slide with diagonal design -->
     <div
-      class="hero-slide slide-1 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-cover bg-right-top bg-no-repeat"
+      class="hero-slide bg-azul slide-1 absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out bg-cover bg-no-repeat"
       style="background-image: url('/images/hero.png')">
       <div class="relative h-full w-full max-w-7xl mx-auto z-10">
-        <div class="relative z-10 pl-8 pt-32 space-y-8">
+        <div class="relative z-10 pl-8 pt-20 md:pt-32 space-y-8">
           <h1 class="text-4xl md:text-5xl max-w-xl text-white leading-tight">
             {headlines[0]}
           </h1>
@@ -43,7 +45,7 @@ const ctaButton = {
 
       <div class="relative h-full w-full max-w-7xl mx-auto z-10">
         <div
-          class="relative z-10 container pt-32 grid grid-cols-2 min-h-[65svh]">
+          class="relative z-10 container pt-20 md:pt-32 grid grid-cols-2 min-h-[65svh]">
           <div class="flex flex-col gap-4">
             <h1 class="text-5xl max-w-xl text-white leading-tight">
               {headlines[1]}
@@ -103,18 +105,6 @@ const ctaButton = {
 </section>
 
 <style>
-  .slide-1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70%;
-    height: 100%;
-    background-color: #0637ae; /* azul */
-    clip-path: polygon(0 0, 85% 0%, 45% 106%, 0 50%);
-    z-index: 1;
-  }
-
   .hero-slide.active {
     opacity: 1;
     z-index: 2;
@@ -122,17 +112,6 @@ const ctaButton = {
 
   .dot.active {
     background-color: white;
-  }
-
-  @media (max-width: 768px) {
-    .slide-1::before {
-      width: 100%;
-      clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
-    }
-    .slide-1 {
-      background-image: cover url("/images/hero-mobile.png");
-      background-position: center;
-    }
   }
 
   section-slide-left {
@@ -180,10 +159,9 @@ const ctaButton = {
       });
     });
 
-    // Auto-rotate slides every 5 seconds
     setInterval(() => {
       const nextSlide = (currentSlide + 1) % slides.length;
       goToSlide(nextSlide);
-    }, 8000);
+    }, 10000);
   });
 </script>
