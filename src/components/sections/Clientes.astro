@@ -15,18 +15,23 @@ const logos = [
   id="Parceiros"
   class="w-full bg-gray-100 overflow-hidden scrolling-section">
   <div class="container w-full bg-gray-100 pt-24 mx-auto">
-    <div class="flex flex-col items-center mb-12">
-      <span class="text-laranja text-3xl mb-2">❤</span>
+    <div class="flex flex-col gap-4 items-center mb-12">
+      <div class="w-[32px] h-[32px]">
+        <img
+          src="/public/images/icons/clientes-icon.svg"
+          alt="Coração Laranja"
+        />
+      </div>
       <h3 class="text-3xl font-semibold text-azul-escuro font-figtree">
         NOSSOS PARCEIROS
       </h3>
     </div>
   </div>
 
-  <div class="logo-scroller pt-8 pb-24">
+  <div class="logo-scroller pt-8 pb-24 bg-gray-100">
     <div class="logo-track" id="logoTrack">
       {
-        logos.concat(logos).map((client, idx) => (
+        logos.concat(logos, logos).map((client, idx) => (
           <div class="logo-item" key={idx}>
             <img
               src={client.logo}
@@ -39,88 +44,102 @@ const logos = [
       }
     </div>
   </div>
+</section>
 
-  <style>
-    .logo-scroller {
-      width: 100vw;
-      overflow: hidden;
-      position: relative;
-      background: #f9fafb;
+<style>
+  .logo-scroller {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+  .logo-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    gap: 2rem;
+    transition: all 0.1s ease;
+  }
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 40px;
+  }
+  .logo-image {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+  }
+  @media (max-width: 768px) {
+    .logo-item {
+      min-width: 100px;
     }
     .logo-track {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: max-content;
-      will-change: transform;
-      gap: 2rem;
+      gap: 1rem;
     }
+  }
+  @media (max-width: 480px) {
     .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 120px;
-      height: 40px;
+      min-width: 80px;
     }
-    .logo-image {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-      user-select: none;
-      pointer-events: none;
+    .logo-track {
+      gap: 0.75rem;
     }
-    @media (max-width: 768px) {
-      .logo-item {
-        min-width: 100px;
-      }
-      .logo-track {
-        gap: 1rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .logo-item {
-        min-width: 80px;
-      }
-      .logo-track {
-        gap: 0.75rem;
-      }
-    }
-  </style>
+  }
+</style>
 
-  <script>
-    import { animate } from "motion";
+<script>
+  import { animate } from "motion";
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const track = document.getElementById("logoTrack");
-      if (!track) return;
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("logoTrack");
+    if (!track) return;
 
-      // Wait for all images to load to get correct width
-      const imgs = Array.from(track.querySelectorAll("img"));
-      let loaded = 0;
-      imgs.forEach((img) => {
-        if (img.complete) loaded++;
-        else
-          img.addEventListener("load", () => {
-            loaded++;
-            if (loaded === imgs.length) startMotion();
-          });
-      });
-      if (loaded === imgs.length) startMotion();
+    let animation = null;
 
-      function startMotion() {
-        // The track is duplicated, so scroll by half its width
-        const trackWidth = track.scrollWidth / 2;
-        track.style.transform = "translateX(0)";
-        animate(
+    // Wait for all images to load to get correct width
+    const imgs = Array.from(track.querySelectorAll("img"));
+    let loaded = 0;
+    imgs.forEach((img) => {
+      if (img.complete) loaded++;
+      else
+        img.addEventListener("load", () => {
+          loaded++;
+          if (loaded === imgs.length) startMotion();
+        });
+    });
+    if (loaded === imgs.length) startMotion();
+
+    function startMotion() {
+      const trackWidth = track.scrollWidth / 3; // Divide by 3 since we have 3 sets
+      track.style.transform = "translateX(0)";
+
+      function updateAnimation() {
+        if (animation) animation.stop();
+
+        animation = animate(
           track,
-          { transform: [`translateX(0px)`, `translateX(-${trackWidth}px)`] },
           {
-            duration: 18,
+            transform: [`translateX(0px)`, `translateX(-${trackWidth}px)`],
+          },
+          {
+            duration: 30,
             easing: "linear",
             repeat: Infinity,
+            onComplete: () => {
+              track.style.transform = "translateX(0)";
+              updateAnimation();
+            },
           }
         );
       }
-    });
-  </script>
-</section>
+
+      updateAnimation();
+    }
+  });
+</script>

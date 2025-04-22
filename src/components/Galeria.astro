@@ -15,6 +15,14 @@ const prints = [
     image: "/images/prints/print-1.png",
     alt: "Print da tela do computador",
   },
+  {
+    image: "/images/prints/print-1.png",
+    alt: "Print da tela do computador",
+  },
+  {
+    image: "/images/prints/print-1.png",
+    alt: "Print da tela do computador",
+  },
 ];
 
 // State for modal
@@ -32,7 +40,7 @@ const { modalOpen = false } = Astro.props;
     <div class="gallery-container md:w-2/3">
       <div class="swiper-container">
         <div class="swiper swiper-galery">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper px-10">
             {
               prints.map((print, index) => (
                 <div class="swiper-slide staggered">
@@ -46,9 +54,9 @@ const { modalOpen = false } = Astro.props;
               ))
             }
           </div>
-          <!-- <div class="swiper-pagination"></div> -->
-          <div class="swiper-button-prev-gallery"></div>
-          <div class="swiper-button-next-gallery"></div>
+          <div class="swiper-pagination"></div>
+          <div id="gallery-prev" class="swiper-button-prev -ml-6"></div>
+          <div id="gallery-next" class="swiper-button-next -mr-6"></div>
         </div>
       </div>
     </div>
@@ -93,19 +101,18 @@ const { modalOpen = false } = Astro.props;
     transform: scale(1.05);
   }
 
-  /* Smaller navigation arrows */
   :global(.swiper-button-next),
   :global(.swiper-button-prev) {
-    width: 50px !important;
-    height: 50px !important;
+    width: 70px !important;
+    height: 70px !important;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--color-azul) !important;
   }
   :global(.swiper-button-next:after),
   :global(.swiper-button-prev:after) {
-    font-size: 18px !important;
-    font-weight: bold;
+    font-size: 22px !important;
+    font-weight: bolder;
   }
 </style>
 
@@ -118,8 +125,8 @@ const { modalOpen = false } = Astro.props;
     slidesPerView: "auto",
     spaceBetween: 16,
     navigation: {
-      nextEl: ".swiper-button-next-gallery",
-      prevEl: ".swiper-button-prev-gallery",
+      nextEl: "#gallery-next",
+      prevEl: "#gallery-prev",
     },
 
     breakpoints: {
