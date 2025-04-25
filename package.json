@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.2.5",
-    "@astrojs/react": "^4.2.3",
+    "@astrojs/netlify": "^6.3.1",
+    "@astrojs/react": "^4.2.5",
     "@react-email/components": "^0.0.36",
     "@tailwindcss/vite": "^4.0.14",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
-    "astro": "^5.5.2",
+    "astro": "^5.7.5",
     "motion": "^12.7.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
