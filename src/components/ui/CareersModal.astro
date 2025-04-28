@@ -1,0 +1,57 @@
+---
+
+---
+
+<div id="careers-modal-container"></div>
+
+<script>
+  import { createRoot } from "react-dom/client";
+  import Modal from "./Modal";
+  import CareersForm from "./CareersForm";
+  import React, { useState, useEffect } from "react";
+
+  // Componente React para gerenciar o estado do modal
+  function ModalContainer() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Função para abrir o modal
+    const openModal = () => setIsOpen(true);
+
+    // Função para fechar o modal
+    const closeModal = () => setIsOpen(false);
+
+    // Adicionar listener para o evento customizado
+    useEffect(() => {
+      const handleOpenModal = () => openModal();
+
+      // Registrar o event listener
+      document.addEventListener("openCareersModal", handleOpenModal);
+
+      // Adicionar o modal como propriedade global para permitir abertura programática
+      window.openCareersModal = openModal;
+
+      // Limpar ao desmontar
+      return () => {
+        document.removeEventListener("openCareersModal", handleOpenModal);
+        delete window.openCareersModal;
+      };
+    }, []);
+
+    return React.createElement(
+      Modal,
+      {
+        isOpen,
+        onClose: closeModal,
+        title: "Trabalhe Conosco",
+      },
+      React.createElement(CareersForm, {})
+    );
+  }
+
+  // Montar o componente React no contêiner
+  const container = document.getElementById("careers-modal-container");
+  if (container) {
+    const root = createRoot(container);
+    root.render(React.createElement(ModalContainer));
+  }
+</script>
