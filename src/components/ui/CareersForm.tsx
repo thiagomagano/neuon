@@ -39,10 +39,10 @@ export default function CareersForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
-  const [fileName, setFileName] = useState<string>('');
-  const [fileError, setFileError] = useState<string>('');
+  //const [fileName, setFileName] = useState<string>('');
+  //const [fileError, setFileError] = useState<string>('');
   
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  //const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Handler para mudanças nos inputs
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -62,16 +62,16 @@ export default function CareersForm() {
 
   // Handler para upload de arquivo
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+    /* const file = e.target.files?.[0];
     setFileError('');
     
     if (!file) {
       setFileName('');
       return;
-    }
+    } */
     
     // Validação do arquivo
-    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+   /*  const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const maxSize = 5 * 1024 * 1024; // 5MB
     
     if (!allowedTypes.includes(file.type)) {
@@ -88,7 +88,7 @@ export default function CareersForm() {
       return;
     }
     
-    setFileName(file.name);
+    setFileName(file.name); */
   };
 
   // Função de validação completa
@@ -97,10 +97,10 @@ export default function CareersForm() {
       formSchema.parse(formData);
       
       // Validar se o arquivo foi selecionado
-      if (!fileInputRef.current?.files?.length) {
+     /*  if (!fileInputRef.current?.files?.length) {
         setFileError('Por favor, anexe seu currículo');
         return false;
-      }
+      } */
       
       return true;
     } catch (error) {
@@ -139,9 +139,9 @@ export default function CareersForm() {
       });
       
       // Adicionar o arquivo
-      if (fileInputRef.current?.files?.[0]) {
-        formDataToSend.append('curriculo', fileInputRef.current.files[0]);
-      }
+      //if (fileInputRef.current?.files?.[0]) {
+      //  formDataToSend.append('curriculo', fileInputRef.current.files[0]);
+     // }
       
       // Enviar dados para o endpoint
       const response = await fetch('/api/send-resume', {
@@ -165,8 +165,8 @@ export default function CareersForm() {
           linkedin: '',
           mensagem: ''
         });
-        setFileName('');
-        if (fileInputRef.current) fileInputRef.current.value = '';
+        //setFileName('');
+        //if (fileInputRef.current) fileInputRef.current.value = '';
         setErrors({});
       } else {
         // Erro do servidor
@@ -263,7 +263,7 @@ export default function CareersForm() {
             {errors.linkedin && <p className="mt-1 text-sm text-red-600">{errors.linkedin}</p>}
           </div>
 
-          <div className='md:col-span-2'>
+          {/* <div className='md:col-span-2'>
             <label htmlFor="curriculo" className="block text-sm font-medium text-gray-700 mb-1">Currículo (PDF ou Word, máx. 5MB)</label>
             <div className="flex">
               <input 
@@ -289,7 +289,7 @@ export default function CareersForm() {
               </label>
             </div>
             {fileError && <p className="mt-1 text-sm text-red-600">{fileError}</p>}
-          </div>
+          </div> */}
 
           <div className='md:col-span-2'>
             <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-1">Mensagem (breve apresentação)</label>

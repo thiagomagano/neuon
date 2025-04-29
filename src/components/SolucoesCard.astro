@@ -28,7 +28,7 @@ const { title, description } = Astro.props;
   <div
     class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
     <div class="pb-6 pt-2">
-      <p class="text-azul-escuro">{description}</p>
+      <div class="text-azul-escuro space-y-4" set:html={description} />
     </div>
   </div>
   <hr class="border-t border-azul" />
@@ -44,8 +44,11 @@ const { title, description } = Astro.props;
         const content = header.nextElementSibling;
         const arrow = header.querySelector(".accordion-arrow");
 
-        content.style.maxHeight = "0px";
-        content.classList.remove("active");
+        // Check if content exists before accessing style
+        if (content instanceof HTMLElement) {
+          content.style.maxHeight = "0px";
+          content.classList.remove("active");
+        }
         arrow?.classList.remove("rotate-180");
       });
     };
@@ -54,18 +57,33 @@ const { title, description } = Astro.props;
       header.addEventListener("click", () => {
         const content = header.nextElementSibling;
         const arrow = header.querySelector(".accordion-arrow");
+
+        // Check if content exists before proceeding
+        if (!(content instanceof HTMLElement)) return;
+
         const isActive = content.classList.contains("active");
 
         // Close all accordions first
         closeAllAccordions();
 
-        // If the clicked accordion wasn't active, open it
         if (!isActive) {
           content.style.maxHeight = `${content.scrollHeight}px`;
           content.classList.add("active");
           arrow?.classList.add("rotate-180");
         }
+        // If it was active, it's already closed by closeAllAccordions
       });
+    });
+
+    // Recalculate height on window resize (optional but good practice for dynamic content)
+    window.addEventListener("resize", () => {
+      const activeContent = document.querySelector(".accordion-content.active");
+      if (activeContent instanceof HTMLElement) {
+        // Temporarily remove max-height to measure, then reapply
+        activeContent.style.maxHeight = "none";
+        const scrollHeight = activeContent.scrollHeight;
+        activeContent.style.maxHeight = `${scrollHeight}px`;
+      }
     });
   });
 </script>

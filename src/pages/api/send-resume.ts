@@ -7,13 +7,11 @@ import { CareersTemplate } from "../../emails/CareersTemplate";
 
 export const prerender = false;
 
-// Inicialize o Resend com sua chave API
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 const RESEND_FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL;
 const CAREERS_FORM_TO_EMAIL = import.meta.env.CONTACT_FORM_TO_EMAIL;
 
-// Lista de destinatários do RH
-const HR_EMAILS: string[] = [CAREERS_FORM_TO_EMAIL]; // Substitua ou adicione os emails dos responsáveis por RH
+const HR_EMAILS: string[] = [CAREERS_FORM_TO_EMAIL, "ana@neuon.com.br"];
 
 // Função para salvar o arquivo temporariamente
 async function saveFile(file: File): Promise<string> {
@@ -48,10 +46,10 @@ export const POST: APIRoute = async ({ request }) => {
     const telefone = formData.get("telefone") as string;
     const linkedin = formData.get("linkedin") as string;
     const mensagem = formData.get("mensagem") as string;
-    const curriculo = formData.get("curriculo") as File;
+    //const curriculo = formData.get("curriculo") as File;
 
     // Validação básica
-    if (!nome || !email || !telefone || !mensagem || !curriculo) {
+    if (!nome || !email || !telefone || !mensagem) {
       return new Response(
         JSON.stringify({
           error: "Todos os campos obrigatórios precisam ser preenchidos",
@@ -61,7 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Salva o arquivo para anexar ao email
-    const filePath = await saveFile(curriculo);
+    // const filePath = await saveFile(curriculo);
 
     // Preparar dados para o email
     const emailData = {
@@ -75,18 +73,16 @@ export const POST: APIRoute = async ({ request }) => {
         linkedin,
         mensagem,
       }),
-      attachments: [
+      /* attachments: [
         {
           filename: curriculo.name,
           path: filePath,
         },
-      ],
+      ], */
     };
 
-    // Enviar email
     const data = await resend.emails.send(emailData);
 
-    // Resposta de sucesso
     return new Response(
       JSON.stringify({ message: "Currículo enviado com sucesso" }),
       { status: 200 }
