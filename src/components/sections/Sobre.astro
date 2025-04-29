@@ -1,31 +1,35 @@
+---
+const SOBRE = {
+  title: "NOSSA HISTÓRIA",
+  description:
+    "A Neuon nasceu com o propósito de conectar tecnologia e inteligência para impulsionar negócios em sua jornada de crescimento e transformação.",
+  history: [
+    "Somos especialistas em entregar consultoria estratégica, desenvolvimento, suporte e implementações que elevam a eficiência e o controle operacional de empresas de médio e grande porte. Com um time altamente qualificado e experiente, transformamos desafios em oportunidades, desenhando soluções personalizadas que se adaptam às necessidades únicas de cada cliente.",
+    "Nosso diferencial está na alta senioridade da equipe, no atendimento remoto de excelência e na agilidade estratégica que levamos para cada projeto. Acreditamos que a tecnologia deve ser um motor de crescimento - e, por isso, trabalhamos para otimizar processos, reduzir custos e aumentar a produtividade, gerando impactos reais e duradouros.",
+    "Com inovação, expertise e compromisso, a Neuon se consolida como o parceiro ideal para negócios que buscam evolução contínua e alto desempenho.",
+  ],
+};
+---
+
 <section id="Sobre" class="py-20 bg-white scrolling-section">
   <div class="grid md:grid-cols-2 container mx-auto space-y-16">
     <h2 class="text-3xl text-azul font-semibold max-w-md card">
-      A Neuon é uma empresa especializada em conectar tecnologia e inteligência
-      para impulsionar negócios por meio do ERP Sankhya.
+      {SOBRE.description}
     </h2>
     <div class="text-azul-escuro flex flex-col card">
       <h2 class="text-3xl text-azul-escuro font-semibold pb-4">
-        NOSSA HISTÓRIA
+        {SOBRE.title}
       </h2>
       <p class="text-pretty">
-        Com um time altamente qualificado e experiente, oferecemos consultoria,
-        desenvolvimento, suporte e implementação, garantindo que empresas de
-        médio e grande porte alcancem mais eficiência e controle em suas
-        operações. Nosso compromisso é transformar desafios em oportunidades,
-        entregando soluções personalizadas que se adaptam às necessidades
-        específicas de cada cliente.
+        {SOBRE.history[0]}
       </p>
 
       <div id="accordion-container" class="overflow-hidden max-h-0">
         <p id="maisTexto" class="pt-8 text-pretty">
-          Nosso diferencial está na alta senioridade da equipe, no atendimento
-          remoto de excelência e na capacidade de oferecer suporte ágil e
-          estratégico. Acreditamos que a tecnologia deve ser um facilitador do
-          crescimento empresarial, e por isso, trabalhamos para otimizar
-          processos, reduzir custos e aumentar a produtividade. Com inovação,
-          expertise e compromisso, a Neuon se torna o parceiro ideal para
-          negócios que buscam evolução contínua e alto desempenho.
+          {SOBRE.history[1]}
+        </p>
+        <p id="maisTexto" class="pt-8 text-pretty">
+          {SOBRE.history[2]}
         </p>
       </div>
       <button id="lerMaisBtn" class="self-end text-xs pt-6 pb-2"

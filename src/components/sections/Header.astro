@@ -6,10 +6,12 @@ const navItems = [
   { text: "Inicio", href: "#Hero" },
   { text: "Nossa Historia", href: "#Sobre" },
   { text: "Soluções", href: "#Solucoes" },
-  { text: "Avaliações", href: "#Avaliacoes" },
+  { text: "Depoimentos", href: "#Depoimentos" },
   { text: "Parceiros", href: "#Parceiros" },
   { text: "Trabalhe Conosco", href: "#Trabalhe-Conosco" },
 ];
+
+const CTA_TEXT = "Fale com um especialista";
 ---
 
 <!-- Adicionando o banner de prévia -->
@@ -55,7 +57,7 @@ const navItems = [
           <a
             href="#Contato"
             class="inline-flex items-center bg-laranja justify-center h-full px-2 py-2 2lx:px-4 2xl:py-2 text-base font-medium text-nowrap text-white hover:underline">
-            Solicite uma demonstração
+            {CTA_TEXT}
           </a>
         </div>
 
@@ -104,7 +106,7 @@ const navItems = [
     <a
       href="#Contato"
       class="block w-full text-center px-4 py-2 mt-4 text-sm font-medium text-white bg-laranja hover:bg-amber-600 focus:outline-none hover:underline">
-      Solicite uma demonstração
+      {CTA_TEXT}
     </a>
   </div>
 </div>

@@ -4,30 +4,37 @@ import TestimonialCard from "../AvaliacoesCard.astro";
 const testimonials = [
   {
     quote:
-      "A experiência com a Neuon foi simplesmente transformadora! Desde o primeiro contato, a equipe se mostrou extremamente profissional, atenta às nossas necessidades e capaz de entregar soluções inovadoras que realmente fizeram a diferença no nosso projeto.",
-    name: "Rafael Ferreira",
-    title: "CEO",
-    imageSrc: "/images/avaliacoes-1.png",
+      "A Neuon tem sido uma parceira essencial no nosso processo de crescimento. O comprometimento, a técnica e o atendimento da equipe fazem toda a diferença no nosso dia a dia. Cada solução entregue supera as expectativas e demonstra entendimento não só no sistema, mas também das nossas necessidades. É visível o impacto positivo que a Neuon gera em nossos processos, sentimos confiança e tranquilidade ao contar com o suporte deles. Sem dúvida, são um pilar importante na nossa evolução tecnológica contribuindo grandemente com as melhorias de processos e automação.",
+    name: "Ana Paula Oliveira ",
+    title: "Controller - Pedreira Martins e Borges",
+    imageSrc: "",
   },
   {
     quote:
-      "Trabalhar com a Neuon superou todas as nossas expectativas! A equipe demonstrou um profundo conhecimento técnico e uma capacidade excepcional de transformar nossos requisitos em soluções práticas e eficientes. O compromisso deles com a qualidade e inovação é verdadeiramente notável.",
-    name: "Bruno Portes",
-    title: "CTO",
-    imageSrc: "/images/avaliacoes-2.png",
+      "A equipe da Neuon sempre nos atende de forma rápida e profissional, buscando uma solução para as nossas necessidades. Sempre desempenhando um trabalho sério, competente e ágil, com acompanhamento dos resultados e foco no cliente. Estamos muito satisfeitos com a parceria e os serviços prestados.",
+    name: "Elisio Moises Rocha",
+    title: "Controller - Monteccer",
+    imageSrc: "",
   },
   {
     quote:
-      "A experiência com a Neuon foi simplesmente transformadora! Desde o primeiro contato, a equipe se mostrou extremamente profissional, atenta às nossas necessidades e capaz de entregar soluções inovadoras que realmente fizeram a diferença no nosso projeto.",
-    name: "Rafael Ferreira",
-    title: "CEO",
-    imageSrc: "/images/avaliacoes-1.png",
+      "Gostaria de expressar nosso sincero reconhecimento à Neuon, empresa parceira de automação do Sankhya, pela competência, dedicação e excelência no atendimento. Eles são extremamente atenciosos, assertivos, possuem um senso de urgência admirável e sempre demonstram uma educação ímpar em todas as interações.No Grupo FGF, admiramos profundamente o comprometimento, a honestidade e a parceria que a Neuon tem nos proporcionado. Eles se tornaram um pilar essencial no nosso processo de crescimento e evolução tecnológica. Cada solução entregue não só supera nossas expectativas, mas também reflete um entendimento profundo das nossas necessidades específicas. É claro o impacto positivo que a Neuon gera em nossos processos diários. Sentimos total confiança e tranquilidade ao contar com seu suporte, que nos proporciona agilidade e segurança. Sem dúvida, a Neuon tem sido fundamental nas melhorias contínuas de nossos processos e na automação que tanto impulsiona nosso desenvolvimento.",
+    name: "Daniela Santos",
+    title: "Coordenadora Financeira - Grupo  FGF",
+    imageSrc: "",
+  },
+  {
+    quote:
+      "Gostaria de agradecer à Neuon pela excelência nos serviços prestados, a equipe da Neuon detém um alto nível de profissionalismo e expertise, fazendo a diferença na entrega de soluções inovadoras e eficientes, contando com um suporte ágil e uma atenção especial às nossas necessidades. Estou muito satisfeito com nossa parceria e espero que ela continue crescendo e trazendo ótimos resultados para ambos os lados.",
+    name: "Edenilson Saidel",
+    title: "Gerente Financeiro- Agrion",
+    imageSrc: "",
   },
 ];
 ---
 
 <section
-  id="Avaliacoes"
+  id="Depoimentos"
   class="py-12 bg-azul sm:py-16 lg:py-20 scrolling-section">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col items-center gap-8">
@@ -37,7 +44,7 @@ const testimonials = [
         class="h-[41px] w-[32px]"
       />
       <h2 class="text-center text-3xl text-white font-semibold max-w-sm">
-        O QUE ESTÃO FALANDO SOBRE A GENTE
+        CONHHEÇA QUEM CONFIA NA GENTE
       </h2>
     </div>
 
@@ -72,9 +79,9 @@ const testimonials = [
 />
 
 <style>
+  width: 100%;
+  padding-bottom: 50px; /* Space for pagination dots */
   .testimonial-swiper {
-    width: 100%;
-    padding-bottom: 50px; /* Space for pagination dots */
     position: relative;
   }
 
