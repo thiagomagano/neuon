@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     quote:
-      "Gostaria de expressar nosso sincero reconhecimento à Neuon, empresa parceira de automação do Sankhya, pela competência, dedicação e excelência no atendimento. Eles são extremamente atenciosos, assertivos, possuem um senso de urgência admirável e sempre demonstram uma educação ímpar em todas as interações.No Grupo FGF, admiramos profundamente o comprometimento, a honestidade e a parceria que a Neuon tem nos proporcionado. Eles se tornaram um pilar essencial no nosso processo de crescimento e evolução tecnológica. Cada solução entregue não só supera nossas expectativas, mas também reflete um entendimento profundo das nossas necessidades específicas. É claro o impacto positivo que a Neuon gera em nossos processos diários. Sentimos total confiança e tranquilidade ao contar com seu suporte, que nos proporciona agilidade e segurança. Sem dúvida, a Neuon tem sido fundamental nas melhorias contínuas de nossos processos e na automação que tanto impulsiona nosso desenvolvimento.",
+      "Gostaria de expressar nosso sincero reconhecimento à Neuon, empresa parceira de automação do Sankhya, pela competência, dedicação e excelência no atendimento. Eles são extremamente atenciosos, assertivos, possuem um senso de urgência admirável e sempre demonstram uma educação ímpar em todas as interações. No Grupo FGF, admiramos profundamente o comprometimento, a honestidade e a parceria que a Neuon tem nos proporcionado. Eles se tornaram um pilar essencial no nosso processo de crescimento e evolução tecnológica. Cada solução entregue não só supera nossas expectativas, mas também reflete um entendimento profundo das nossas necessidades específicas. É claro o impacto positivo que a Neuon gera em nossos processos diários. Sentimos total confiança e tranquilidade ao contar com seu suporte, que nos proporciona agilidade e segurança. Sem dúvida, a Neuon tem sido fundamental nas melhorias contínuas de nossos processos e na automação que tanto impulsiona nosso desenvolvimento.",
     name: "Daniela Santos",
     title: "Coordenadora Financeira",
     company: "Grupo FGF",
@@ -48,7 +48,6 @@ const testimonials = [
       </h2>
     </div>
 
-    <!-- Swiper container replacing the grid -->
     <div class="mt-12 testimonial-swiper">
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -66,13 +65,12 @@ const testimonials = [
           }
         </div>
       </div>
-      <!-- Pagination dots moved outside the swiper container -->
+
       <div class="swiper-pagination mt-8"></div>
     </div>
   </div>
 </section>
 
-<!-- Swiper CSS -->
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
@@ -80,7 +78,7 @@ const testimonials = [
 
 <style>
   width: 100%;
-  padding-bottom: 50px; /* Space for pagination dots */
+  padding-bottom: 50px;
   .testimonial-swiper {
     position: relative;
   }
@@ -107,7 +105,6 @@ const testimonials = [
 <script>
   import Swiper from "swiper/bundle";
 
-  // Initialize Swiper
   const swiper = new Swiper(".testimonial-swiper .swiper", {
     slidesPerView: 1,
     spaceBetween: 30,
