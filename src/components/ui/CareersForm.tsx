@@ -29,11 +29,11 @@ type SubmitStatus = {
 export default function CareersForm() {
   // Estados com tipos definidos
   const [formData, setFormData] = useState<FormData>({
-    nome: 'THIAGO MAGANO',
-    telefone: '51993438767',
-    email: 'othymag@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/thiagomagano/',
-    mensagem: 'Olá, gostaria de me candidatar a vaga de desenvolvedor front-end. Sou desenvolvedor front-end com experiência em React e Next.js. Estou animado para contribuir com a equipe da Neuon.',
+    nome: '',
+    telefone: '',
+    email: '',
+    linkedin: '',
+    mensagem: '',
   });
   
   const [errors, setErrors] = useState<FormErrors>({});
