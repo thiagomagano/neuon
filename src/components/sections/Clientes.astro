@@ -6,12 +6,7 @@ const logos = [
   { id: 4, name: "Pedreira Martins e Borges", logo: "/images/clientes/4.webp" },
   { id: 5, name: "Monteccer", logo: "/images/clientes/5.webp" },
   { id: 6, name: "Guarana Mineiro", logo: "/images/clientes/6.webp" },
-  { id: 7, name: "Satis", logo: "/images/clientes/1.webp" },
-  { id: 8, name: "Agrion", logo: "/images/clientes/2.webp" },
-  { id: 9, name: "Grupo FGF", logo: "/images/clientes/3.webp" },
-  { id: 10, name: "Pedreira Martins", logo: "/images/clientes/4.webp" },
-  { id: 11, name: "Monteccer", logo: "/images/clientes/5.webp" },
-  { id: 12, name: "Guarana Mineiro", logo: "/images/clientes/6.webp" },
+  { id: 7, name: "Instituro João Bittar", logo: "/images/clientes/7.webp" },
 ];
 ---
 
@@ -31,6 +26,18 @@ const logos = [
 
   <div class="logo-scroller pt-8 pb-24 bg-gray-100">
     <div class="logo-track" id="logoTrack">
+      {
+        logos.concat(logos, logos).map((client, idx) => (
+          <div class="logo-item" key={idx}>
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="logo-image"
+              draggable="false"
+            />
+          </div>
+        ))
+      }
       {
         logos.concat(logos, logos).map((client, idx) => (
           <div class="logo-item" key={idx}>
